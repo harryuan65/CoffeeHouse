@@ -57,6 +57,7 @@ group :development, :test do
   # gem "solargraph" # I need this all the time, don't want to depend on the project
   gem "standard"
   gem "reek"
+  gem "rspec-rails", "5.1.2"
 end
 
 group :development do
