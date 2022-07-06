@@ -1,0 +1,19 @@
+<nav class="h-24 bg-nav font-bold text-2xl flex justify-between px-12">
+  <div class="links flex items-center">
+    <%= link_to "HOME", root_path, class: "text-white hover:opacity-70" %>
+    <%# TODO: ABOUT %>
+    <%= link_to "ABOUT", '/about', class: "text-accent hover:opacity-70 ml-8" %>
+    <%# TODO: CONTACT %>
+    <%= link_to "CONTACT", '/contact', class: "text-accent hover:opacity-70 ml-8" %>
+  </div>
+  <div class="actions flex items-center">
+    <% if current_user %>
+      <%# link_to "SIGN OUT", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?", disable_with: "Submitting..." }, class: "text-white hover:opacity-70" %>
+      <%# This will not work in Rails 7 because it uses turbo by default now %>
+      <%# See https://stackoverflow.com/questions/70474422/rails-7-link-to-with-method-delete-still-performs-get-request %>
+      <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "text-white hover:opacity-70" %>
+    <% else %>
+      <%= link_to "SIGN IN", new_user_session_path, class: "text-white hover:opacity-70" %>
+    <% end %>
+  </div>
+</nav>
