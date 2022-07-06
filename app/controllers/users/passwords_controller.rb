@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+#
+# Declared for custom views only
+#
 class Users::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
   # def new

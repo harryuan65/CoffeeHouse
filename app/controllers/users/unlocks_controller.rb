@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+#
+# Declared for custom views only
+#
 class Users::UnlocksController < Devise::UnlocksController
   # GET /resource/unlock/new
   # def new
