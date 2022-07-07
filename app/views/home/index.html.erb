@@ -1,12 +1,14 @@
 <main>
-  <div class="h-96 bg-visual grid grid-cols-2 px-12">
-    <div class="left flex flex-col justify-center items-start pl-10">
-      <h1 class="text-3xl text-white">WELCOME TO</h1>
-      <h1 class="text-3xl text-accent">COFFYA</h1>
-      <h3 class="text-xl mt-8 text-white">ENJOY COFFEE & JAZZ</h3>
-    </div>
-    <div class="right flex justify-center items-center">
-      <%= image_tag 'coffee.png' %>
+  <div class="visual h-96 bg-visual grid place-items-center">
+    <div class="grid grid-cols-2 place-items-center">
+      <div class="left flex flex-col justify-center items-start max-w-[514px]">
+        <h1 class="text-3xl text-white">WELCOME TO</h1>
+        <h1 class="text-3xl text-accent">COFFYA</h1>
+        <h3 class="text-xl mt-8 text-white">ENJOY COFFEE & JAZZ</h3>
+      </div>
+      <div class="right flex justify-center items-center max-w-[514px]">
+        <%= image_tag 'coffee.png', class: "max-w-[500px]" %>
+      </div>
     </div>
   </div>
 </main>
