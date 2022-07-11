@@ -3,9 +3,12 @@ module.exports = {
     colors: {
       nav: '#00092C',
       accent: '#A67D6A',
+      primary: '#E0A98F',
       'title-gray': '#5E6268',
+      gray: '#d1d1d1',
       border: '#dadada',
       white: '#FFF',
+      black: '#000',
       flash: '#FAFAFA',
       success: '#068A18',
       alert: '#FF1C4C',
