@@ -6,7 +6,6 @@ module.exports = {
       nav: '#00092C',
       accent: '#A67D6A',
       primary: '#E0A98F',
-      'title-gray': '#5E6268',
       gray: colors.gray,
       white: colors.white,
       black: colors.black,
