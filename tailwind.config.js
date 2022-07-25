@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   theme: {
     colors: {
@@ -5,10 +7,9 @@ module.exports = {
       accent: '#A67D6A',
       primary: '#E0A98F',
       'title-gray': '#5E6268',
-      gray: '#d1d1d1',
-      border: '#dadada',
-      white: '#FFF',
-      black: '#000',
+      gray: colors.gray,
+      white: colors.white,
+      black: colors.black,
       flash: '#FAFAFA',
       success: '#068A18',
       alert: '#FF1C4C',
