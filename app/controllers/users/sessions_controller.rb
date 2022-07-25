@@ -21,7 +21,7 @@ class Users::SessionsController < Devise::SessionsController
       respond_with user, location: after_sign_in_path_for(resource)
     else
       set_flash_message(:alert, :invalid, scope: "devise.failure", authentication_keys: "Email")
-      respond_with user, location: new_user_session_path
+      render turbo_stream: turbo_stream.update("flash_messages", partial: "shared/flash")
     end
   end
 

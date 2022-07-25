@@ -11,7 +11,7 @@ module.exports = {
       white: colors.white,
       black: colors.black,
       flash: '#FAFAFA',
-      success: '#068A18',
+      notice: '#068A18',
       alert: '#FF1C4C',
       visual: '#0E183F',
     },
