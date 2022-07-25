@@ -12,9 +12,18 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    user = warden.authenticate(auth_options)
+    if user
+      self.user = user
+      set_flash_message!(:notice, :signed_in)
+      sign_in(:user, user)
+      respond_with user, location: after_sign_in_path_for(resource)
+    else
+      set_flash_message(:alert, :invalid, scope: "devise.failure", authentication_keys: "Email")
+      respond_with user, location: new_user_session_path
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy
