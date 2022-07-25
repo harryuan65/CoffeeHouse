@@ -4,14 +4,14 @@
   <div class="products grid grid-cols-4 gap-6 p-8">
     <% 1.upto(5).each do |item| %>
       <%# DEMO PRODUCT ITEM %>
-      <div class="product max-w-[284px] border-solid border-[1px] border-gray rounded-lg p-4 shadow-md">
+      <div class="product max-w-[284px] border-solid border-[1px] border-gray-300 rounded-lg p-4 shadow-md">
         <%= image_tag 'product_holder.svg', class: "w-[256px]" %>
         <h2 class="m-1">黃金曼特寧 - 濾掛 20 包</h2>
-        <span class="inline-block mt-1 px-2 py-1 text-xs rounded-lg bg-gray">淺培</span>
+        <span class="inline-block mt-1 px-2 py-1 text-xs rounded-lg bg-gray-300">淺培</span>
         <h1 class="font-sans text-2xl text-right font-bold mt-5">NT$550</h1>
         <div class="flex justify-end items-end mt-4">
-          <%= link_to "加入購物車", root_path, class: "p-2 text-sm rounded-md bg-gray hover:opacity-75" %>
-          <%= link_to "直接購買", root_path, class: "p-2 ml-2 text-sm rounded-md bg-gray hover:opacity-75 bg-primary" %>
+          <%= link_to "加入購物車", root_path, class: "p-2 text-sm rounded-md bg-gray-300 hover:opacity-75" %>
+          <%= link_to "直接購買", root_path, class: "p-2 ml-2 text-sm rounded-md bg-gray-300 hover:opacity-75 bg-primary" %>
         </div>
       </div>
     <% end %>
