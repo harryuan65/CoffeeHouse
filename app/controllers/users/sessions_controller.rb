@@ -13,15 +13,11 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    user = warden.authenticate(auth_options) # use #resource to validate
-    if user
-      self.resource = user
-      set_flash_message!(:notice, :signed_in)
-      sign_in(:user, user)
-      render :create
+    # uses self.resource to validate
+    if (user = warden.authenticate(auth_options))
+      respond_to_sign_in user
     else
-      set_flash_message(:alert, :invalid, scope: "devise.failure", authentication_keys: "Email")
-      build_user and render :new
+      respond_to_bad_sign_in
     end
   end
 
@@ -44,5 +40,18 @@ class Users::SessionsController < Devise::SessionsController
   # Make sure resource is a #User for sign in form.
   def build_user
     self.resource = User.new
+  end
+
+  def respond_to_sign_in(user)
+    self.resource = user
+    set_flash_message!(:notice, :signed_in)
+    sign_in(:user, user)
+    render :create
+  end
+
+  def respond_to_bad_sign_in
+    set_flash_message(:alert, :invalid, scope: "devise.failure", authentication_keys: "Email")
+    build_user
+    render :new
   end
 end
