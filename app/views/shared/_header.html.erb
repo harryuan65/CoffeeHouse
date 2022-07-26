@@ -14,10 +14,9 @@
       <%# Must use a button_to to create its own csrf token, otherwise blocked by rails  %>
       <%= button_to "SIGN OUT", destroy_user_session_path, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: "text-white hover:opacity-70" %>
     <% else %>
-      <%= link_to "SIGN IN", new_user_session_path, data: { turbo_frame: "sign_in_modal" }, class: "text-white hover:opacity-70" %>
+      <%= link_to "SIGN IN", new_user_session_path, data: { turbo_frame: "modal" }, class: "text-white hover:opacity-70" %>
     <% end %>
   </div>
 </nav>
 <%= render "shared/flash" %>
-<%= turbo_frame_tag "sign_in_modal" %>
-<%= turbo_frame_tag "sign_up_modal" %>
+<%= turbo_frame_tag "modal" %>
