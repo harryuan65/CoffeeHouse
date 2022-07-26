@@ -1,4 +1,0 @@
-<%# Cannot do redirect for modal because it throws frame target not found, Issue: https://github.com/hotwired/turbo/issues/432 %>
-<%# respond_with user, location: after_sign_in_path_for(user) #/ %>
-<%# redirect_to root_path %>
-<%= turbo_stream.update("header", partial: "shared/header") %>

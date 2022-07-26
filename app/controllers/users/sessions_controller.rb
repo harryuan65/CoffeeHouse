@@ -25,7 +25,7 @@ class Users::SessionsController < Devise::SessionsController
   def destroy
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(:user))
     set_flash_message!(:notice, :signed_out) if signed_out
-    render turbo_stream: turbo_stream.update("header", partial: "shared/header")
+    render_turbo "update_header"
   end
 
   # protected
@@ -46,7 +46,7 @@ class Users::SessionsController < Devise::SessionsController
     self.resource = user
     set_flash_message!(:notice, :signed_in)
     sign_in(:user, user)
-    render :create
+    render_turbo "update_header"
   end
 
   def respond_to_bad_sign_in
