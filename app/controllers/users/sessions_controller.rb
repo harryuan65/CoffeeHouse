@@ -7,9 +7,7 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new; end
 
   # POST /resource/sign_in
   def create
@@ -21,10 +19,7 @@ class Users::SessionsController < Devise::SessionsController
       respond_with user, location: after_sign_in_path_for(resource)
     else
       set_flash_message(:alert, :invalid, scope: "devise.failure", authentication_keys: "Email")
-      render turbo_stream: [
-        turbo_stream.update("flash_messages", partial: "shared/flash"),
-        turbo_stream.update("sign_in_modal", partial: "shared/modal_sign_in")
-      ]
+      render :new
     end
   end
 

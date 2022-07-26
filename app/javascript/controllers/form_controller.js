@@ -1,5 +1,4 @@
 import { Controller } from '@hotwired/stimulus';
-
 export default class extends Controller {
   static targets = ['submit'];
   submittable;
@@ -17,4 +16,12 @@ export default class extends Controller {
     let submittable = edited || event.target.value !== '';
     this.submitTarget.disabled = !submittable;
   }
+
+  // Not working with turbo ajax, need to replace form with turbo stream for now
+  // disableFormOnSubmit() {
+  //   // this.element
+  //   //   .querySelectorAll('input')
+  //   //   .forEach((input) => (input.value = null));
+  //   this.submitTarget.setAttribute('disabled', 'disabled');
+  // }
 }

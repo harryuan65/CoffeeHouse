@@ -1,0 +1,33 @@
+<div class="form-comtainer flex flex-col justify-center items-center bg-white w-[30rem] h-[30rem] ">
+  <div class="logo p-4">
+    <h1 class="text-primary text-center text-4xl font-bold">COFFEEYA</h1>
+  </div>
+  <% if alert %>
+    <p class="bg-red-200 py-4 text-red-800 w-full text-center"><%= alert %></p>
+  <% end %>
+  <div class="form flex flex-col justify-center items-center">
+    <span class="my-4 text-md">使用 Coffeeya 帳號登入</span>
+    <%= turbo_frame_tag "sign_in_form" do %>
+      <%= form_with(url: new_user_session_path, class: "w-80", data: { controller: "form", turbo_frame: "sign_in_form" }) do |f| %>
+        <div class="field">
+          <%= f.email_field :email, data: {action: "input->form#updateEditing" }, required: true, placeholder: "Coffeeya 帳號", autofocus: true, autocomplete: "email", class: "w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+        </div>
+        <div class="field">
+          <%= f.password_field :password, data: {action: "input->form#updateEditing" }, required: true, placeholder: "密碼", autocomplete: "current-password", class: "mt-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+        </div>
+        <% if Devise.mappings[:user].rememberable? %>
+          <div class="field float-right py-2">
+            <%= f.check_box :remember_me %>
+            <%= f.label "記住我" %>
+          </div>
+        <% end %>
+        <div class="actions">
+          <%= f.submit "登入", data: { target: "form.submit" }, class: "disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed bg-slate-300 text-slate-600 py-3 w-full cursor-pointer rounded-sm", disabled: "disabled" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+    <p class="py-2">還不是會員？<%= link_to "立即註冊", new_user_registration_path, class: "text-accent hover:text-primary" %></p>
+  </div>
+</div>

@@ -10,9 +10,6 @@
   </head>
   <body class="h-screen bg-nav">
     <%= render "shared/header" %>
-    <%= turbo_frame_tag "flash_messages" do %>
-      <%= render "shared/flash" %>
-    <% end %>
     <%= turbo_frame_tag "sign_in_modal" %>
     <main class="bg-white">
       <%= yield %>

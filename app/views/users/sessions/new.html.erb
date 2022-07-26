@@ -1,4 +1,4 @@
 <%# form only %>
 <%= turbo_frame_tag "sign_in_modal" do %>
-  <%= render 'shared/modal_sign_in' %>
+  <%= render partial: "shared/modal", locals: { content: "shared/forms/sign_in" } %>
 <% end %>
