@@ -18,10 +18,7 @@ class Users::SessionsController < Devise::SessionsController
       self.resource = user
       set_flash_message!(:notice, :signed_in)
       sign_in(:user, user)
-      # Cannot do redirect for modal because it throws frame target not found, Issue: https://github.com/hotwired/turbo/issues/432
-      # respond_with user, location: after_sign_in_path_for(user) # /
-      # redirect_to root_path
-      render turbo_stream: turbo_stream.update("header", partial: "shared/header")
+      render :create
     else
       set_flash_message(:alert, :invalid, scope: "devise.failure", authentication_keys: "Email")
       build_user and render :new
