@@ -18,20 +18,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     @user.save
     if @user.persisted?
-      if @user.active_for_authentication?
-        set_flash_message! :notice, :signed_up
-        sign_up(:user, @user)
-      else
-        set_flash_message! :notice, :"signed_up_but_#{@user.inactive_message}"
-        expire_data_after_sign_in!
-      end
-      render turbo_stream: turbo_stream.update("header", partial: "shared/header")
+      respond_to_valid_credentials
     else
-      clean_up_passwords @user
-      set_minimum_password_length
-      flash[:alert] = @user.errors.full_messages.join(", ")
-      render :new
+      respond_to_invalid_credentials
     end
+  end
+
+  private
+
+  def respond_to_valid_credentials
+    if @user.active_for_authentication?
+      set_flash_message! :notice, :signed_up
+      sign_up(:user, @user)
+    else
+      set_flash_message! :notice, :"signed_up_but_#{@user.inactive_message}"
+      expire_data_after_sign_in!
+    end
+    render turbo_stream: turbo_stream.update("header", partial: "shared/header")
+  end
+
+  def respond_to_invalid_credentials
+    clean_up_passwords(@user)
+    set_minimum_password_length
+    flash[:alert] = @user.errors.full_messages.join(", ")
+    render :new
   end
 
   # GET /resource/edit
