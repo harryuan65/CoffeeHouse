@@ -3,12 +3,10 @@ const colors = require('tailwindcss/colors');
 module.exports = {
   theme: {
     colors: {
+      ...colors,
       nav: '#00092C',
       accent: '#A67D6A',
       primary: '#E0A98F',
-      gray: colors.gray,
-      white: colors.white,
-      black: colors.black,
       flash: '#FAFAFA',
       notice: '#068A18',
       alert: '#FF1C4C',
