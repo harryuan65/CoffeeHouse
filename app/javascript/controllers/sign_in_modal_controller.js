@@ -1,13 +1,13 @@
-import { Controller } from '@hotwired/stimulus';
+import { Controller } from '@hotwired/stimulus'
 
 // Connects to data-controller="sign-in-modal"
 export default class extends Controller {
-  static targets = ['modal'];
+  static targets = ['modal']
 
-  connect() {}
+  connect () {}
 
-  closeModal() {
-    this.element.remove();
+  closeModal () {
+    this.element.remove()
     // this.element.classList.remove('grid');
     // this.element.classList.add('hidden');
   }
