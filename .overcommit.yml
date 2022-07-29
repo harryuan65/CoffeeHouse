@@ -25,15 +25,20 @@ PreCommit:
   EsLint:
     enabled: true
     required_executable: "yarn"
-    command: ["yarn", "eslint"]
+    command: ["yarn", "eslint", "app/javascript/**/*.js"]
     flags: []
   MergeConflicts:
     enabled: true
   RuboCop:
     enabled: true
-    # on_warn: fail # Treat all warnings as failures
-
+    on_warn: fail
+  # RSpec:
+  #   enabled: true
+  #   description: 'Run RSpec test suite'
+  #   required_executable: 'bundle exec rspec'
 CommitMsg:
+  CapitalizedSubject:
+    enabled: false
   MessageFormat:
     enabled: true
     description: "Check commit message matches expected pattern"
