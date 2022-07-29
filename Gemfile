@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -59,6 +61,7 @@ group :development, :test do
   gem "standard"
   gem "reek"
   gem "rspec-rails", "5.1.2"
+  gem "rubocop-rails"
 end
 
 group :development do
@@ -73,3 +76,4 @@ group :development do
 end
 
 gem "devise", "~> 4.8"
+gem "money-rails", "~>1.12"
