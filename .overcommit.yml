@@ -33,13 +33,13 @@ PreCommit:
     enabled: true
     on_warn: fail
   ErbLint:
-    enabled: false
+    enabled: true
     description: "Analyze with ERB Lint"
     required_executable: "erblint"
     install_command: "bundle install erb_lint"
     include: "**/*.html.erb"
   Reek:
-    enabled: false
+    enabled: true
     description: "Analyze with Reek"
     required_executable: "reek"
     flags: ["--single-line", "--no-color", "--force-exclusion"]
