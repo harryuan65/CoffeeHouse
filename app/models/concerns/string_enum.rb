@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Allow strings themselves as enum
 #

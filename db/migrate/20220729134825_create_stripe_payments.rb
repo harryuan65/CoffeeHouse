@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateStripePayments < ActiveRecord::Migration[7.0]
   def change
     create_table :stripe_payments, id: :uuid do |t|
