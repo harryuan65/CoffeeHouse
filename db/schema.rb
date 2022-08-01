@@ -18,8 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_044319) do
   create_table "cart_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "cart_id", null: false
     t.uuid "product_id", null: false
-    t.integer "discount_cents", default: 0, null: false
-    t.string "discount_currency", default: "USD", null: false
+    t.float "discount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_cart_items_on_cart_id"
@@ -36,8 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_044319) do
   create_table "order_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "product_id", null: false
     t.uuid "order_id", null: false
-    t.integer "total_cents", default: 0, null: false
-    t.string "total_currency", default: "USD", null: false
+    t.float "price", default: 0.0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
