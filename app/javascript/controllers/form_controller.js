@@ -13,7 +13,7 @@ export default class extends Controller {
     inputs.forEach((input) => {
       edited ||= !!input.value
     })
-    const submittable = edited || event.target.value !== ''
+    const submittable = edited && event.target.value !== ''
     this.submitTarget.disabled = !submittable
   }
 
