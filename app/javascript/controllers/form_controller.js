@@ -8,12 +8,12 @@ export default class extends Controller {
   }
 
   updateEditing (event) {
-    let edited = false
+    let allEdited = true
     const inputs = this.element.querySelectorAll('input[required]')
-    inputs.forEach((input) => {
-      edited ||= !!input.value
+    inputs.forEach((input, i) => {
+      allEdited &&= !!input.value
     })
-    const submittable = edited && event.target.value !== ''
+    const submittable = allEdited && !!event.target.value
     this.submitTarget.disabled = !submittable
   }
 
