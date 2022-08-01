@@ -7,24 +7,22 @@
   <% end %>
   <div class="form flex flex-col justify-center items-center">
     <span class="my-4 text-md">註冊 Coffeeya 帳號</span>
-    <%= turbo_frame_tag "sign_up_form" do %>
-      <%= form_with(model: @user, url: user_registration_path, data: { controller: "form", turbo_frame: "modal" }, class: "w-80") do |f| %>
-        <div class="field">
-          <%= f.email_field :email, data: {action: "input->form#updateEditing" }, required: true, placeholder: "Coffeeya 帳號", autofocus: true, autocomplete: "email", class: "w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
-        </div>
-        <div class="field">
-          <%= f.password_field :password, required: true, placeholder: "密碼", autocomplete: "new-password", class: "mt-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
-          <% if @minimum_password_length %>
-            <em>最短長度為 <%= @minimum_password_length %> 字元</em>
-          <% end %><br />
-        </div>
-        <div class="field">
-          <%= f.password_field :password_confirmation, required: true, placeholder: "確認密碼", autocomplete: "new-password", class: "my-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
-        </div>
-        <div class="actions">
-          <%= f.submit "註冊", data: { target: "form.submit" }, class: "disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed bg-slate-300 text-slate-600 py-3 w-full cursor-pointer rounded-sm", disabled: "disabled" %>
-        </div>
-      <% end %>
+    <%= form_with(model: @user, url: user_registration_path, data: { controller: "form", turbo_frame: "modal" }, class: "w-80") do |f| %>
+      <div class="field">
+        <%= f.email_field :email, data: {action: "input->form#updateEditing" }, required: true, placeholder: "Coffeeya 帳號", autofocus: true, autocomplete: "email", class: "w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+      </div>
+      <div class="field">
+        <%= f.password_field :password, required: true, placeholder: "密碼", autocomplete: "new-password", class: "mt-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+        <% if @minimum_password_length %>
+          <em>最短長度為 <%= @minimum_password_length %> 字元</em>
+        <% end %><br>
+      </div>
+      <div class="field">
+        <%= f.password_field :password_confirmation, required: true, placeholder: "確認密碼", autocomplete: "new-password", class: "my-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "註冊", data: { target: "form.submit" }, class: "disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed bg-slate-300 text-slate-600 py-3 w-full cursor-pointer rounded-sm", disabled: "disabled" %>
+      </div>
     <% end %>
   </div>
   <div>

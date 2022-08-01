@@ -7,24 +7,22 @@
   <% end %>
   <div class="form flex flex-col justify-center items-center">
     <span class="my-4 text-md">使用 Coffeeya 帳號登入</span>
-    <%= turbo_frame_tag "sign_in_form" do %>
-      <%= form_with(model: resource, url: new_user_session_path, data: { controller: "form", turbo_frame: "modal" }, class: "w-80") do |f| %>
-        <div class="field">
-          <%= f.email_field :email, data: {action: "input->form#updateEditing" }, required: true, placeholder: "Coffeeya 帳號", autofocus: true, autocomplete: "email", class: "w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
-        </div>
-        <div class="field">
-          <%= f.password_field :password, data: {action: "input->form#updateEditing" }, required: true, placeholder: "密碼", autocomplete: "current-password", class: "mt-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
-        </div>
-        <% if Devise.mappings[:user].rememberable? %>
-          <div class="field float-right py-2">
-            <%= f.check_box :remember_me %>
-            <%= f.label "記住我" %>
-          </div>
-        <% end %>
-        <div class="actions">
-          <%= f.submit "登入", data: { target: "form.submit" }, class: "disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed bg-slate-300 text-slate-600 py-3 w-full cursor-pointer rounded-sm", disabled: "disabled" %>
+    <%= form_with(model: resource, url: new_user_session_path, data: { controller: "form", turbo_frame: "modal" }, class: "w-80") do |f| %>
+      <div class="field">
+        <%= f.email_field :email, data: {action: "input->form#updateEditing" }, required: true, placeholder: "Coffeeya 帳號", autofocus: true, autocomplete: "email", class: "w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+      </div>
+      <div class="field">
+        <%= f.password_field :password, data: {action: "input->form#updateEditing" }, required: true, placeholder: "密碼", autocomplete: "current-password", class: "mt-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+      </div>
+      <% if Devise.mappings[:user].rememberable? %>
+        <div class="field float-right py-2">
+          <%= f.check_box :remember_me %>
+          <%= f.label "記住我" %>
         </div>
       <% end %>
+      <div class="actions">
+        <%= f.submit "登入", data: { target: "form.submit" }, class: "disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed bg-slate-300 text-slate-600 py-3 w-full cursor-pointer rounded-sm", disabled: "disabled" %>
+      </div>
     <% end %>
   </div>
   <div>
