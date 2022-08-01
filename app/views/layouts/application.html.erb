@@ -12,7 +12,7 @@
     <%= turbo_frame_tag "header" do %>
       <%= render "shared/header" %>
     <% end %>
-    <main class="bg-white">
+    <main class="bg-white min-h-[calc(100%-96px)]">
       <%= yield %>
     </main>
   </body>
