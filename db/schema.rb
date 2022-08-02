@@ -61,6 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_044319) do
     t.string "name", null: false
     t.string "image_url"
     t.float "price", null: false
+    t.integer "available_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_products_on_name"
