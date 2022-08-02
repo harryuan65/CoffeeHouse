@@ -1,7 +1,9 @@
+<%= turbo_stream_from "products" %>
 <section class="mt-8">
   <h1 class="text-gray-500 text-lg text-center">PRODUCTS</h1>
   <hr class="border-gray-500 m-4">
-  <div class="products grid grid-cols-4 gap-6 p-8">
+  <%# without this group tag, it works if update/destory exisiting product, but it is required for group append %>
+  <%= turbo_frame_tag "products", class: "products grid grid-cols-4 gap-6 p-8" do %>
     <%= render "products/products" %>
-  </div>
+  <% end %>
 </section>
