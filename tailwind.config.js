@@ -1,18 +1,15 @@
-const colors = require('tailwindcss/colors');
-
 module.exports = {
   theme: {
-    colors: {
-      ...colors,
-      nav: '#00092C',
-      accent: '#A67D6A',
-      primary: '#E0A98F',
-      flash: '#FAFAFA',
-      notice: '#068A18',
-      alert: '#FF1C4C',
-      visual: '#0E183F',
-    },
     extend: {
+      colors: {
+        nav: '#00092C',
+        accent: '#A67D6A',
+        primary: '#E0A98F',
+        flash: '#FAFAFA',
+        notice: '#068A18',
+        alert: '#FF1C4C',
+        visual: '#0E183F',
+      },
       animation: {
         'fade-in-out': 'fade 4s forwards ease-in',
       },
@@ -40,4 +37,4 @@ module.exports = {
     './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js',
   ],
-};
+}
