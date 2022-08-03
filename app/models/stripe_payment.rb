@@ -4,5 +4,5 @@
 # Stores stripe payment info
 #
 class StripePayment < ApplicationRecord
-  belongs_to :order, as: :payment
+  belongs_to :order
 end
