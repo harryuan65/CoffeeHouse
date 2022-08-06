@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* https://github.com/rails/rails/issues/43441 */
+/* @import 'actiontext.css'; */
 
 @layer components {
   input[type='number'] {

@@ -41,3 +41,7 @@ directories:
       enabled: false
     FeatureEnvy:
       enabled: false
+    DuplicateMethodCall: # correctness is more important in migration files
+      enabled: false
+    UtilityFunction:
+      enabled: false

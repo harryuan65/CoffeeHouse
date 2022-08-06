@@ -9,4 +9,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
   has_many :orders
+
+  def admin?
+    email == ENV["ADMIN_EMAIL"]
+  end
 end
