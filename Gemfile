@@ -57,6 +57,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
   # gem "solargraph" # I need this all the time, don't want to depend on the project
+  gem "dotenv-rails"
   gem "erb_lint"
   gem "standard"
   gem "reek"

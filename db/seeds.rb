@@ -14,3 +14,10 @@ Product.create!(
   price: 300,
   available_count: 3
 )
+
+admin = User.new(
+  email: ENV["ADMIN_EMAIL"] || "admin@gmail.com"
+)
+
+admin.password = "111111"
+admin.save

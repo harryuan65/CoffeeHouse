@@ -2,6 +2,8 @@
 # Product Pages
 #
 class ProductsController < ApplicationController
+  before_action :admin_required, only: %i[edit update]
+
   def show
     @product = Product.find(params[:id])
   end
@@ -28,5 +30,9 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:content, :name, :sku, :image_url, :price, :available_count, :created_at, :updated_at)
+  end
+
+  def admin_required
+    return redirect_to(root_path) unless current_user&.admin?
   end
 end
