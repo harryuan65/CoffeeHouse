@@ -12,11 +12,15 @@
     </thead>
     <tbody>
       <% @cart.items.each do |cart_item| %>
-        <tr class="mt-7 first:mt-0 bg-white" data-available-amount="<%= cart_item.product.available_count %>">
+        <tr class="mt-7 first:mt-0 bg-white">
           <td class="p-2 min-w-[120px] max-w-[120px]"><%= image_tag cart_item.product.image_url || "product_holder.svg" %></td>
           <td class="p-4 min-w-[320px] align-baseline"><%= cart_item.product.name %></td>
           <td class="p-2 min-w-[128px]"><%= number_to_currency(cart_item.product.price, unit: "NT$ ", precision: 0) %></td>
-          <td class="p-2 min-w-[142px]"><%= cart_item.amount %></td>
+          <td class="p-2 min-w-[142px] select-none" data-controller="cart">
+            <div class="flex items-center">
+              <span class="ml-3 inline-block bg-gray-300 text-gray-700 w-7 h-7 cursor-pointer text-center" data-action="click->cart#decrementItem">-</span><%= number_field_tag :amount, cart_item.amount, in: 1..cart_item.product.available_count, autocomplete: "off", readonly: true, class: "text-center outline-none min-w-[28px] max-h-[28px] border border-gray-400 p-[2px]", data: { "cart-target": "amount" } %><span class="inline-block bg-gray-300 text-gray-700 w-7 h-7 cursor-pointer text-center" data-action="click->cart#incrementItem">+</span>
+            </div>
+          </td>
           <td class="p-2 min-w-[128px]"><%= number_to_currency(cart_item.product.price * cart_item.amount, unit: "NT$ ", precision: 0) %></td>
         </tr>
       <% end %>

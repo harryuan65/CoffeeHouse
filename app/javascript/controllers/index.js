@@ -7,8 +7,10 @@ import FormController from './form_controller.js'
 import NumberFieldController from './number_field_controller.js'
 import ModalController from './modal_controller.js'
 import RefreshController from './refresh_controller.js'
+import CartController from './cart_controller.js'
 
 application.register('form', FormController)
 application.register('number-field', NumberFieldController)
 application.register('modal', ModalController)
 application.register('refresh', RefreshController)
+application.register('cart', CartController)
