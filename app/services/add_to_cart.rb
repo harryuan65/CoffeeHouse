@@ -9,6 +9,7 @@ class AddToCart
   def initialize(user, params)
     @user = user
     @product = Product.find(params[:product_id])
+    @amount = params[:amount] || 1
   end
 
   # @return [Cart] current cart
@@ -17,7 +18,7 @@ class AddToCart
     cart_items = current_cart.items
 
     if (current_item = cart_items.find_by(product: @product))
-      current_item.increment(:amount, params[:amount] || 1) && current_item.save
+      current_item.increment(:amount, @amount) && current_item.save
     else
       cart_items.create(product: @product)
     end
@@ -25,9 +26,9 @@ class AddToCart
     current_cart
   end
 
-  def self.call(params)
+  def self.call(*args)
     ActiveRecord::Base.transaction do
-      new(params).call
+      new(*args).call
     end
   end
 
