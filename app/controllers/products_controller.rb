@@ -17,10 +17,7 @@ class ProductsController < ApplicationController
     @product.assign_attributes(product_params)
 
     if @product.save
-      # https://stackoverflow.com/questions/71981471/why-is-my-flash-now-not-outputting-after-a-render
-      # redirect_to product_path(@product), notice: "成功更新商品"
-      flash[:notice] = "成功更新商品"
-      redirect_to product_path(@product)
+      redirect_to product_path(@product), notice: "成功更新商品"
     else
       render :edit, alert: @product.errors.full_messages.join(", ")
     end
