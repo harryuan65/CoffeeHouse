@@ -19,16 +19,12 @@ class Users::SessionsController < Devise::SessionsController
     else
       respond_to_bad_sign_in
     end
-    respond_to do |format|
-      format.turbo_stream
-    end
   end
 
   # DELETE /resource/sign_out
   def destroy
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(:user))
     set_flash_message!(:notice, :signed_out) if signed_out
-    redirect_to root_path, notice: "Successfully signed out"
   end
 
   # protected
@@ -47,14 +43,13 @@ class Users::SessionsController < Devise::SessionsController
 
   def respond_to_sign_in(user)
     self.resource = user
-    set_flash_message!(:notice, :signed_in, now: true)
+    set_flash_message!(:notice, :signed_in)
     sign_in(:user, user)
-    true
   end
 
   def respond_to_bad_sign_in
     set_flash_message(:alert, :invalid, scope: "devise.failure", authentication_keys: "Email", now: true)
     build_user
-    false
+    render status: 401
   end
 end

@@ -1,7 +1,4 @@
-<% if @success %>
-  <%= turbo_stream.update("actions", partial: "shared/sign_button") %>
-  <%= turbo_stream.update("flash", partial: "shared/flash") %>
-  <%= turbo_stream.update("modal", "") %>
-<% else %>
+<%# success will simply refresh the current page from client in form %>
+<% if !@success %>
   <%= turbo_stream.update("form_flash", partial: "shared/forms/form_flash") %>
 <% end %>

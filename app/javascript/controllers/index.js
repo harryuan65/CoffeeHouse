@@ -6,7 +6,9 @@ import { application } from './application'
 import FormController from './form_controller.js'
 import ProductFormController from './product_form_controller.js'
 import ModalController from './modal_controller.js'
+import RefreshController from './refresh_controller.js'
 
 application.register('form', FormController)
 application.register('product-form', ProductFormController)
 application.register('modal', ModalController)
+application.register('refresh', RefreshController)

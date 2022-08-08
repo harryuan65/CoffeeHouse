@@ -1,10 +1,12 @@
-import { Controller } from '@hotwired/stimulus'
-export default class extends Controller {
+import RefreshController from './refresh_controller'
+
+export default class extends RefreshController {
   static targets = ['submit']
   submittable
 
   connect () {
     this.submittable = false
+    this.refreshOn('turbo:submit-end')
   }
 
   updateEditing (event) {
@@ -16,12 +18,4 @@ export default class extends Controller {
     const submittable = allEdited && !!event.target.value
     this.submitTarget.disabled = !submittable
   }
-
-  // Not working with turbo ajax, need to replace form with turbo stream for now
-  // disableFormOnSubmit() {
-  //   // this.element
-  //   //   .querySelectorAll('input')
-  //   //   .forEach((input) => (input.value = null));
-  //   this.submitTarget.setAttribute('disabled', 'disabled');
-  // }
 }
