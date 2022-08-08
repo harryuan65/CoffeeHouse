@@ -28,7 +28,7 @@ class Users::SessionsController < Devise::SessionsController
   def destroy
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(:user))
     set_flash_message!(:notice, :signed_out) if signed_out
-    redirect_to root_path, notice: "Successfully signed out" # flash not working
+    redirect_to root_path, notice: "Successfully signed out"
   end
 
   # protected
