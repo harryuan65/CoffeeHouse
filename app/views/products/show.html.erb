@@ -4,7 +4,7 @@
       <%= image_tag @product.image_url || "product_holder.svg", class: "w-[24rem]" %>
     </div>
     <div class="product__info flex justify-center">
-      <%= form_with model: @product, class: "product__form flex flex-col justify-between items-center", data: { turbo: false, controller: "product-form" } do %>
+      <%= form_with model: @product, class: "product__form flex flex-col justify-between items-center", data: { turbo: false, controller: "number-field" } do %>
         <% if current_user&.admin? %>
           <%= link_to "編輯", edit_product_path(@product) ,class: "inline-block text-right w-full text-gray-700" %>
         <% end %>
@@ -16,7 +16,7 @@
           <p class="product__available text-right">剩餘數量 <strong><%= @product.available_count %></strong></p>
           <p class="product__amount flex justify-end items-center">
             <span class="text-gray-700">數量</span>
-            <span class="ml-3 inline-block bg-gray-300 text-gray-700 w-7 h-7 cursor-pointer text-center" data-action="click->product-form#decrement">-</span><%= number_field_tag :amount, 1, in: 1..@product.available_count, autocomplete: "off", readonly: true, class: "text-center outline-none min-w-[28px] max-h-[28px] border border-gray-400 p-[2px]", data: { "product-form-target": "amount" } %><span class="inline-block bg-gray-300 text-gray-700 w-7 h-7 cursor-pointer text-center" data-action="click->product-form#increment">+</span>
+            <span class="ml-3 inline-block bg-gray-300 text-gray-700 w-7 h-7 cursor-pointer text-center" data-action="click->number-field#decrement">-</span><%= number_field_tag :amount, 1, in: 1..@product.available_count, autocomplete: "off", readonly: true, class: "text-center outline-none min-w-[28px] max-h-[28px] border border-gray-400 p-[2px]", data: { "number-field-target": "amount" } %><span class="inline-block bg-gray-300 text-gray-700 w-7 h-7 cursor-pointer text-center" data-action="click->number-field#increment">+</span>
           </p>
           <div class="product__actions">
             <%= link_to "加入購物車", root_path, class: "inline-block text-center w-full mt-5 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
