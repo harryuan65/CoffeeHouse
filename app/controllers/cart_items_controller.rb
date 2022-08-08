@@ -7,6 +7,7 @@ class CartItemsController < ApplicationController
 
   def create
     cart = AddToCart.call(current_user, params)
+    flash[:notice] = "成功新增商品到購物車"
     redirect_to cart_path(cart)
   end
 end
