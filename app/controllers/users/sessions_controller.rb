@@ -14,10 +14,13 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     # uses self.resource to validate
-    if (user = warden.authenticate(auth_options))
+    @success = if (user = warden.authenticate(auth_options))
       respond_to_sign_in user
     else
       respond_to_bad_sign_in
+    end
+    respond_to do |format|
+      format.turbo_stream
     end
   end
 
@@ -25,7 +28,7 @@ class Users::SessionsController < Devise::SessionsController
   def destroy
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(:user))
     set_flash_message!(:notice, :signed_out) if signed_out
-    render_turbo "update_header"
+    redirect_to root_path, notice: "Successfully signed out" # flash not working
   end
 
   # protected
@@ -44,14 +47,14 @@ class Users::SessionsController < Devise::SessionsController
 
   def respond_to_sign_in(user)
     self.resource = user
-    set_flash_message!(:notice, :signed_in)
+    set_flash_message!(:notice, :signed_in, now: true)
     sign_in(:user, user)
-    render_turbo "update_header"
+    true
   end
 
   def respond_to_bad_sign_in
-    set_flash_message(:alert, :invalid, scope: "devise.failure", authentication_keys: "Email")
+    set_flash_message(:alert, :invalid, scope: "devise.failure", authentication_keys: "Email", now: true)
     build_user
-    render :new
+    false
   end
 end

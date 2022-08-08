@@ -10,9 +10,11 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body class="h-screen bg-nav">
-    <%= turbo_frame_tag "header" do %>
-      <%= render "shared/header" %>
+    <%= render "shared/header" %>
+    <%= turbo_frame_tag "flash" do %>
+      <%= render "shared/flash" %>
     <% end %>
+    <%= turbo_frame_tag "modal" %>
     <main class="bg-white min-h-[calc(100%-96px)]">
       <%= yield %>
     </main>
