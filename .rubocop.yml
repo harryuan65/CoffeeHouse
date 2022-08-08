@@ -2,3 +2,7 @@ require: standard
 
 inherit_gem:
   standard: config/base.yml
+
+Style/RedundantReturn:
+  Exclude:
+    - app/controllers/**/*

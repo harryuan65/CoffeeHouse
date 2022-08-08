@@ -1,0 +1,6 @@
+<%# form only %>
+<%# turbo_frame_tag "modal" do %>
+  <%# render partial: "shared/modal", locals: { content: "shared/forms/sign_in" } %>
+  <%# end %>
+  <%= turbo_stream.update("modal", partial: "shared/modal", locals: { content: "shared/forms/sign_in" }) %>
+  <%= turbo_stream.update("form_flash", partial: "shared/forms/form_flash") %>
