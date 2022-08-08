@@ -40,7 +40,7 @@ class User < ApplicationRecord
     email == ENV["ADMIN_EMAIL"]
   end
 
-  def active_cart
+  def current_cart
     carts.pending.last || carts.create!
   end
 end
