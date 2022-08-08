@@ -1,0 +1,3 @@
+<% if !@success %>
+  <%= turbo_stream.update("flash", partial: "shared/flash") %>
+<% end %>

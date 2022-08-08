@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -343,
-    "scrollLeft": -254,
+    "scrollTop": -387,
+    "scrollLeft": -21,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -720,7 +720,7 @@
           "active": false,
           "left": 1526.0602,
           "top": 1330.0829,
-          "zIndex": 10,
+          "zIndex": 9,
           "widthName": 100.69590759277344,
           "widthComment": 60
         },
@@ -982,7 +982,7 @@
           "active": false,
           "left": 1013.4231,
           "top": 1422.4167,
-          "zIndex": 9,
+          "zIndex": 8,
           "widthName": 60.109954833984375,
           "widthComment": 60
         },
@@ -1194,10 +1194,10 @@
             "id": "194acee2-6554-40d6-8fcc-60c00d2759ca"
           },
           {
-            "name": "discount",
+            "name": "amount",
             "comment": "",
             "dataType": "integer",
-            "default": "0",
+            "default": "1",
             "option": {
               "autoIncrement": false,
               "primaryKey": false,
@@ -1221,7 +1221,7 @@
           "active": false,
           "left": 173,
           "top": 584,
-          "zIndex": 8,
+          "zIndex": 14,
           "widthName": 65.075927734375,
           "widthComment": 60
         },
@@ -1306,7 +1306,7 @@
           "active": false,
           "left": 733,
           "top": 577,
-          "zIndex": 19,
+          "zIndex": 10,
           "widthName": 60,
           "widthComment": 60
         },

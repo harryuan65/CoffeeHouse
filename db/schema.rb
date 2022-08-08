@@ -56,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_05_020124) do
   create_table "cart_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "cart_id", null: false
     t.uuid "product_id", null: false
-    t.float "discount", null: false
+    t.integer "amount", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_cart_items_on_cart_id"

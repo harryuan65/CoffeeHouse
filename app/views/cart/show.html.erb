@@ -1,0 +1,25 @@
+<div class="max-w-[70vw] m-auto h-screen">
+  <h1>購物車</h1>
+  <table class="text-gray-700">
+    <thead>
+      <tr>
+        <th class="p-4 font-normal text-sm"></th>
+        <th class="p-4 font-normal text-sm">商品</th>
+        <th class="p-4 font-normal text-sm">單價</th>
+        <th class="p-4 font-normal text-sm">數量</th>
+        <th class="p-4 font-normal text-sm">小計</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart.items.each do |cart_item| %>
+        <tr class="mt-7 first:mt-0 bg-white" data-available-amount="<%= cart_item.product.available_count %>">
+          <td class="p-2 min-w-[120px] max-w-[120px]"><%= image_tag cart_item.product.image_url || "product_holder.svg" %></td>
+          <td class="p-4 min-w-[320px] align-baseline"><%= cart_item.product.name %></td>
+          <td class="p-2 min-w-[128px]"><%= number_to_currency(cart_item.product.price, unit: "NT$ ", precision: 0) %></td>
+          <td class="p-2 min-w-[142px]"><%= cart_item.amount %></td>
+          <td class="p-2 min-w-[128px]"><%= number_to_currency(cart_item.product.price * cart_item.amount, unit: "NT$ ", precision: 0) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

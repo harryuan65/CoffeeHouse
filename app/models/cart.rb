@@ -13,5 +13,9 @@
 # Keeps track of users cart items, will be references by an order after purchase
 #
 class Cart < ApplicationRecord
+  extend StringEnum
   belongs_to :user
+  has_many :items, class_name: "CartItem"
+
+  enum status: string_enum(%w[pending archived])
 end

@@ -34,8 +34,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
   has_many :orders
+  has_many :carts
 
   def admin?
     email == ENV["ADMIN_EMAIL"]
+  end
+
+  def active_cart
+    carts.pending.last || carts.create!
   end
 end
