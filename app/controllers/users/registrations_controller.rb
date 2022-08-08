@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(sign_up_params) # sign_up_params uses form_with @model
 
     @user.save
-    if @user.persisted?
+    @success = if @user.persisted?
       respond_to_valid_credentials
     else
       respond_to_invalid_credentials
@@ -34,14 +34,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       set_flash_message! :notice, :"signed_up_but_#{@user.inactive_message}"
       expire_data_after_sign_in!
     end
-    render turbo_stream: turbo_stream.update("header", partial: "shared/header")
   end
 
   def respond_to_invalid_credentials
     clean_up_passwords(@user)
     set_minimum_password_length
     flash[:alert] = @user.errors.full_messages.join(", ")
-    render :new
+    render status: 401
   end
 
   # GET /resource/edit

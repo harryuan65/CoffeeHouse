@@ -1,9 +1,9 @@
-<div class="form-comtainer flex flex-col justify-center items-center bg-white w-[30rem] h-[30rem] ">
+<div class="form-comtainer flex flex-col justify-center items-center bg-white w-[30rem] min-h-[30rem] ">
   <div class="logo p-4">
     <h1 class="text-primary text-center text-4xl font-bold">COFFEEYA</h1>
   </div>
-  <% if alert %>
-    <p class="bg-red-200 py-4 text-red-800 w-full text-center"><%= alert %></p>
+  <%= turbo_frame_tag "form_flash", class: "w-full" do %>
+    <%= render "shared/forms/form_flash" %>
   <% end %>
   <div class="form flex flex-col justify-center items-center">
     <span class="my-4 text-md">註冊 Coffeeya 帳號</span>
