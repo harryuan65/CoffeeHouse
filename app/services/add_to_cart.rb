@@ -33,11 +33,9 @@ class AddToCart < ApplicationService
 
   private
 
-  #
   # Checks if this item can be added x @amount again,
-  #   setting result to new total
-  # @param [Product] exisiting_item
-  #
+  # capped by product's available count
+  # @param [Integer] final amount of the item
   def increment_cart_item_amount(exisiting_item)
     current_amount = exisiting_item.amount
     new_total_amount = current_amount + @amount
