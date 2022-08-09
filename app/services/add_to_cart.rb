@@ -4,37 +4,30 @@
 # Add Product to Cart
 #
 class AddToCart
-  # @param [User] user
-  # @param [ActionController::Parameters] params
-  def initialize(user, params)
-    @user = user
+  def initialize(current_cart, params)
+    @current_cart = current_cart
     @product = Product.find(params[:product_id])
     @amount = params[:amount] || 1
   end
 
-  # @return [Cart] current cart
-  #
+  # @return [Integer] current items count
   def call
-    cart_items = current_cart.items
+    cart_items = @current_cart.items
 
-    if (current_item = cart_items.find_by(product: @product))
-      current_item.increment(:amount, @amount) && current_item.save
+    if (exisiting_item = cart_items.find_by(product: @product))
+      exisiting_item.increment(:amount, @amount) && exisiting_item.save
     else
       cart_items.create(product: @product)
     end
 
-    current_cart
+    cart_items.count
   end
 
+  # @param [Cart] current_cart
+  # @param [ActionController::Parameters] params
   def self.call(*args)
     ActiveRecord::Base.transaction do
       new(*args).call
     end
-  end
-
-  private
-
-  def current_cart
-    @current_cart ||= @user.current_cart
   end
 end

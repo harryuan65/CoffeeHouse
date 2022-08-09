@@ -11,4 +11,10 @@ class ApplicationController < ActionController::Base
       return render "users/sessions/request_session", status: 401
     end
   end
+
+  def show_cart_items_count
+    if current_user && !session[:cart_count]
+      session[:cart_count] = current_user.current_cart.items.count
+    end
+  end
 end

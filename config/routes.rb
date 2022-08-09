@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     # unlocks: 'users/unlocks'
   }
   resources :products
-  resources :cart
+  resources :carts do
+    collection do
+      get :current
+    end
+  end
   resources :cart_items
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

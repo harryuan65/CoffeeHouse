@@ -1,0 +1,6 @@
+<%= link_to current_carts_path, data: {turbo: false}, class: "mr-4 w-8 block" do %>
+  <%= image_tag('cart.svg') %>
+  <% if session[:cart_count]&.positive? %>
+    <span class="text-gray-300 text-sm absolute right-1 -bottom-2 rounded-full grid place-items-center w-6 h-6 bg-accent"><%= session[:cart_count] %></span>
+  <% end %>
+<% end %>

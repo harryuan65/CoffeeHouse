@@ -6,7 +6,12 @@
     <%# TODO: CONTACT %>
     <%= link_to "CONTACT", '/contact', class: "text-accent hover:opacity-70 ml-8" %>
   </div>
-  <div id="actions" class="actions flex items-center font-bold text-2xl">
-    <%= render "shared/sign_button" %>
+  <div class="flex items-center">
+    <%= turbo_frame_tag "cart", class: "cart relative" do %>
+      <%= render "shared/cart" %>
+    <% end %>
+    <div id="actions" class="actions flex items-center font-bold text-2xl">
+      <%= render "shared/sign_button" %>
+    </div>
   </div>
 </nav>

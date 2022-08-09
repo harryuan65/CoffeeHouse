@@ -26,7 +26,7 @@ module ErrorHandler
   end
 
   def server_error_handler(exception)
-    error_details = "#{exception}\n#{exception.backtrace[0]}"
+    error_details = "#{exception}\n#{exception.backtrace[0..10]}"
     logger.fatal error_details
     handle error_message: "#{exception}\n#{error_details}", status: :internal_server_error
   end
