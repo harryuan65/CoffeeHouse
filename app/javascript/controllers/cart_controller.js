@@ -6,22 +6,20 @@ export default class extends NumberFieldController {
   }
 
   incrementItem () {
-    console.log('incrementItem')
-    const priceElement = this.element.previousElementSibling
-    const priceText = priceElement.innerHTML.replace(/NT\$/, '')
-    const price = Number(priceText)
-    const currentAmount = this.increment()
-    const newPrice = this.numberWithCommas(price * currentAmount)
-    this.element.nextElementSibling.innerHTML = `NT$ ${newPrice}`
+    this.updateAmount(this.increment())
   }
 
   decrementItem () {
-    console.log('decrementItem')
-    const priceElement = this.element.previousElementSibling
+    this.updateAmount(this.decrement())
+  }
+
+  updateAmount (newAmount) {
+    // Should we update db?
+    const priceElement = this.element.querySelector('[data-name="price"]')
     const priceText = priceElement.innerHTML.replace(/NT\$/, '')
     const price = Number(priceText)
-    const currentAmount = this.decrement()
-    const newPrice = this.numberWithCommas(price * currentAmount)
-    this.element.nextElementSibling.innerHTML = `NT$ ${newPrice}`
+    const newPrice = this.numberWithCommas(price * newAmount)
+    const subtotalElement = this.element.querySelector('[data-name="subtotal"]')
+    subtotalElement.innerHTML = `NT$ ${newPrice}`
   }
 }

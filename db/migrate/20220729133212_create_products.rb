@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :name, null: false, index: true
       t.string :sku, null: false, index: {unique: true}
       t.string :image_url
+      t.string :category, null: false, default: "consumable"
       t.float :price, null: false
       t.integer :available_count, null: false, default: 0
 
