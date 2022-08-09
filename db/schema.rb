@@ -86,9 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_05_020124) do
     t.uuid "product_id", null: false
     t.string "payment_type", null: false
     t.uuid "payment_id", null: false
-    t.string "category"
-    t.integer "stripe_customer_id"
-    t.string "status"
+    t.string "status", default: "pending", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["payment_type", "payment_id"], name: "index_orders_on_payment"
@@ -100,6 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_05_020124) do
     t.string "name", null: false
     t.string "sku", null: false
     t.string "image_url"
+    t.string "category", default: "consumable", null: false
     t.float "price", null: false
     t.integer "available_count", default: 0, null: false
     t.datetime "created_at", null: false
@@ -109,9 +108,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_05_020124) do
   end
 
   create_table "stripe_payments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.integer "amount"
-    t.string "currency"
+    t.integer "amount", null: false
+    t.string "currency", null: false
     t.json "response"
+    t.string "stripe_customer_id", null: false
     t.string "stripe_subscription_id"
     t.string "stripe_invoice_id"
     t.datetime "created_at", null: false
