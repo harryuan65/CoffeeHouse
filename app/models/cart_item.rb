@@ -17,6 +17,5 @@
 class CartItem < ApplicationRecord
   belongs_to :product
   belongs_to :cart
-  after_update_commit { broadcast_replace_to "cart_items" }
   after_destroy_commit { broadcast_remove_to "cart_items" }
 end
