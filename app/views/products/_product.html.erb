@@ -8,6 +8,6 @@
   <% end %>
   <div class="flex flex-col justify-end items-end mt-4">
     <h1 class="font-sans text-2xl text-right font-bold mt-5"><%= number_to_currency product.price, unit: "NT$", precision: 0 %></h1>
-    <%= button_to "加入購物車", cart_items_path(product_id: product.id), data: current_user ? { turbo: false } : nil, method: :post, class: "p-2 text-sm rounded-md bg-gray-300 hover:opacity-75 bg-primary" %>
+    <%= button_to "加入購物車", cart_items_path(product_id: product.id), method: :post, class: "p-2 text-sm rounded-md bg-gray-300 hover:opacity-75 bg-primary" %>
   </div>
 <% end %>
