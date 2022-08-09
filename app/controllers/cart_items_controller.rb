@@ -6,8 +6,8 @@ class CartItemsController < ApplicationController
   delegate :current_cart, to: :current_user
 
   def create
-    items_count = AddToCart.call(current_cart, params)
-    session[:cart_count] = items_count
+    addition = AddToCart.call(current_cart, params)
+    session[:cart_count] = addition.result
     flash.now.notice = "成功新增商品到購物車"
   end
 

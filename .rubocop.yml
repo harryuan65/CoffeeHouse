@@ -3,6 +3,9 @@ require: standard
 inherit_gem:
   standard: config/base.yml
 
+AllCops:
+  TargetRubyVersion: 3.0.3
+
 Style/RedundantReturn:
   Exclude:
     - app/controllers/**/*
