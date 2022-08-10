@@ -8,7 +8,6 @@ export default class extends Controller {
   }
 
   increment () {
-    console.log('increment')
     const currentValue = Number(this.amountTarget.value)
     const maxValue = Number(this.amountTarget.max)
     if (currentValue < maxValue) {
@@ -18,7 +17,6 @@ export default class extends Controller {
   }
 
   decrement () {
-    console.log('decrement')
     const currentValue = Number(this.amountTarget.value)
     const minValue = Number(this.amountTarget.min)
     if (currentValue > minValue) {
