@@ -14,7 +14,7 @@ class AddToCart < ApplicationService
     cart_items = @current_cart.items
 
     if (exisiting_item = cart_items.find_by(product: @product))
-      increment_cart_item_amount(exisiting_item)
+      increase_amount_for(exisiting_item)
     else
       cart_items.create(product: @product)
     end
@@ -37,7 +37,7 @@ class AddToCart < ApplicationService
   # Checks if this item can be added x @amount again,
   # capped by product's available count
   # @param [Integer] final amount of the item
-  def increment_cart_item_amount(exisiting_item)
+  def increase_amount_for(exisiting_item)
     current_amount = exisiting_item.amount
     new_total_amount = current_amount + @amount
 
