@@ -1,2 +1,5 @@
 <%= turbo_stream.update("flash", partial: "shared/flash") %>
 <%= turbo_stream.update("cart", partial: "shared/cart") %>
+<% if @items_count.zero? %>
+  <%= turbo_stream.update("cart_content", partial: "carts/empty") %>
+<% end %>

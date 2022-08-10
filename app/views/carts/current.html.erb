@@ -1,7 +1,7 @@
 <%# Only listen to web socket when there's any item to watch %>
-<div class="max-w-[70vw] m-auto h-screen py-5">
-  <h1 class="text-gray-700">購物車</h1>
+<div class="max-w-[70vw] m-auto h-screen py-5" id="cart_content">
   <% if @items.any? %>
+    <h1 class="text-gray-700">購物車</h1>
     <%= render partial: "carts/cart", locals: { items: @items } %>
     <hr class="border-gray-500 m-4">
   <% else %>

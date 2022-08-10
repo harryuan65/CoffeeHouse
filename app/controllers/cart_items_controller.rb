@@ -14,7 +14,8 @@ class CartItemsController < ApplicationController
   def destroy
     items = current_cart.items
     items.find(params[:id]).destroy
-    session[:cart_count] = items.count
+    @items_count = items.count
+    session[:cart_count] = @items_count
     flash.now.notice = "成功移除商品"
   end
 end
