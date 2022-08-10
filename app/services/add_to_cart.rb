@@ -13,12 +13,13 @@ class AddToCart < ApplicationService
   def call
     cart_items = @current_cart.items
 
-    @result = if (exisiting_item = cart_items.find_by(product: @product))
+    if (exisiting_item = cart_items.find_by(product: @product))
       increment_cart_item_amount(exisiting_item)
     else
       cart_items.create(product: @product)
-      cart_items.count
     end
+
+    @result = cart_items.count
 
     self
   end
@@ -42,9 +43,6 @@ class AddToCart < ApplicationService
 
     if new_total_amount <= @product.available_count
       exisiting_item.increment(:amount, @amount) && exisiting_item.save
-      new_total_amount
-    else
-      current_amount
     end
   end
 end
