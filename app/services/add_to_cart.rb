@@ -4,45 +4,24 @@
 # Add Product to Cart
 #
 class AddToCart < ApplicationService
+  attr_reader :message
+
+  # @param [Cart] current_cart
+  # @param [ActionController::Parameters] params
   def initialize(current_cart, params)
-    @current_cart = current_cart
+    @items = current_cart.items
     @product = Product.find(params[:product_id])
     @amount = params[:amount] || 1
   end
 
   def call
-    cart_items = @current_cart.items
+    current_count = @items.count
 
-    if (exisiting_item = cart_items.find_by(product: @product))
-      increase_amount_for(exisiting_item)
+    if @items.exists?(product: @product)
+      complete(current_count, :bad_request, "商品已存在購物車")
     else
-      cart_items.create(product: @product)
-    end
-
-    @result = cart_items.count
-
-    self
-  end
-
-  # @param [Cart] current_cart
-  # @param [ActionController::Parameters] params
-  def self.call(*args)
-    ActiveRecord::Base.transaction do
-      new(*args).call
-    end
-  end
-
-  private
-
-  # Checks if this item can be added x @amount again,
-  # capped by product's available count
-  # @param [Integer] final amount of the item
-  def increase_amount_for(exisiting_item)
-    current_amount = exisiting_item.amount
-    new_total_amount = current_amount + @amount
-
-    if new_total_amount <= @product.available_count
-      exisiting_item.increment(:amount, @amount) && exisiting_item.save
+      @items.create(product: @product)
+      complete(current_count + 1, :ok, "成功新增商品至購物車")
     end
   end
 end

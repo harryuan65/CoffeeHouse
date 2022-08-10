@@ -6,16 +6,28 @@ class CartItemsController < ApplicationController
   delegate :current_cart, to: :current_user
 
   def create
-    addition = AddToCart.call(current_cart, params)
-    session[:cart_count] = addition.result
-    flash.now.notice = "成功新增商品到購物車"
+    result = AddToCart.call(current_cart, params)
+    session[:cart_count] = result.output
+
+    respond_with(result)
   end
 
   def destroy
-    items = current_cart.items
-    items.find(params[:id]).destroy
-    @items_count = items.count
-    session[:cart_count] = @items_count
-    flash.now.notice = "成功移除商品"
+    result = RemoveFromCart.call(current_cart, params)
+    session[:cart_count] = result.output
+
+    respond_with(result)
+  end
+
+  private
+
+  #
+  # Response with flash status based on result
+  # @param [ApplicationService::Result] result
+  #
+  def respond_with(result)
+    status, flash_key, message = result.info_for_response
+    flash.now[flash_key] = message
+    render status: status
   end
 end
