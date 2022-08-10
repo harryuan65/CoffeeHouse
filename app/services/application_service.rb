@@ -24,8 +24,8 @@ class ApplicationService
       @status == :ok ? :notice : :alert
     end
 
-    def info_for_response
-      [status, flash_key, message]
+    def for_response
+      yield(status, flash_key, message)
     end
   end
 

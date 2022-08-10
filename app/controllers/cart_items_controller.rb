@@ -26,8 +26,9 @@ class CartItemsController < ApplicationController
   # @param [ApplicationService::Result] result
   #
   def respond_with(result)
-    status, flash_key, message = result.info_for_response
-    flash.now[flash_key] = message
-    render status: status
+    result.for_response do |status, flash_key, message|
+      flash.now[flash_key] = message
+      render status: status
+    end
   end
 end
