@@ -5,6 +5,6 @@
     <%= render partial: "carts/cart", locals: { items: @items } %>
     <hr class="border-gray-500 m-4">
   <% else %>
-    <%= render "carts/empty" %>
+    <%= render partial: "carts/empty" %>
   <% end %>
 </div>
