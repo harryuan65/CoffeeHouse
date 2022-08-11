@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   resources :carts do
     collection do
       get :current
+      post :check_out
     end
   end
   resources :cart_items
+  resources :orders
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
