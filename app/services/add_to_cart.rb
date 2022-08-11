@@ -18,7 +18,7 @@ class AddToCart < ApplicationService
     current_count = @items.count
 
     if @items.exists?(product: @product)
-      complete(current_count, :bad_request, "商品已存在購物車")
+      complete(current_count, :ok, "商品已存在購物車")
     else
       @items.create(product: @product)
       complete(current_count + 1, :ok, "成功新增商品至購物車")
