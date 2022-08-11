@@ -1,0 +1,8 @@
+<div class="max-w-[70vw] m-auto h-screen py-5">
+  <h1 class="text-gray-700">確認結帳</h1>
+  <%= form_with url: orders_path do |f| %>
+    <%= render partial: "orders/order", locals: { items: @order_items } %>
+    <hr class="border-gray-500 m-4">
+    <%= f.submit "結帳", class: "float-right hover:opacity-80 inline-block text-center w-24 mt-5 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+  <% end %>
+</div>

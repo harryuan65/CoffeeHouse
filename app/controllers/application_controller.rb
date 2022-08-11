@@ -17,4 +17,15 @@ class ApplicationController < ActionController::Base
       session[:cart_count] = current_user.current_cart.items.count
     end
   end
+
+  #
+  # Response with flash status based on result
+  # @param [ApplicationService::Result] result
+  #
+  def respond_with(result)
+    result.for_response do |status, flash_key, message|
+      flash.now[flash_key] = message if message
+      render status: status
+    end
+  end
 end

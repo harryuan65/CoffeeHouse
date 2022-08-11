@@ -1,0 +1,9 @@
+<tr class="bg-white max-w-3xl">
+  <td data-name="image" class="p-2 min-w-[80px] w-[14%]"><%= image_tag order_item.product.image_url || "product_holder.svg" %></td>
+  <td data-name="name" class="p-4 w-[38%] align-baseline"><%= link_to order_item.product.name, product_path(order_item.product) %></td>
+  <td data-name="price" class="p-2 w-[15%] text-center"><%= number_to_currency(order_item.product.price, unit: "NT$ ", precision: 0) %></td>
+  <td data-name="amount" class="p-2 w-[17%] text-center">
+    <%= order_item.amount %>
+  </td>
+  <td data-name="subtotal" class="p-2 w-[15%] text-center"><%= number_to_currency(order_item.total_price, unit: "NT$ ", precision: 0) %></td>
+</tr>

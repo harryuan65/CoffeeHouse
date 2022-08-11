@@ -1,0 +1,16 @@
+<table class="text-gray-700 border-separate border-spacing-y-6 m-auto">
+  <thead class="font-normal text-sm">
+    <tr>
+      <th class="min-w-[80px] w-[14%]"></th>
+      <th class="w-[38%]">商品</th>
+      <th class="w-[15%]">單價</th>
+      <th class="w-[17%]">數量</th>
+      <th class="w-[15%]">小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% items.each do |order_item| %>
+      <%= render partial: "orders/order_item", locals: { order_item: order_item, product: order_item.product } %>
+    <% end %>
+  </tbody>
+</table>

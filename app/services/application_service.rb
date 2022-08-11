@@ -12,9 +12,9 @@ class ApplicationService
     #
     # @param [Object] output from service call
     # @param [Symbol] status in `Rack::Utils::SYMBOL_TO_STATUS_CODE`
-    # @param [String] message for flash
+    # @param [String|NilClass] message for flash
     #
-    def initialize(output, status, message)
+    def initialize(output, status, message = nil)
       @output = output
       @status = status
       @message = message
@@ -34,7 +34,7 @@ class ApplicationService
   # @return [ApplicationService::Result]
   def call = raise(NotImplementedError)
 
-  def complete(output, status, message)
+  def complete(output, status, message = nil)
     @result = Result.new(output, status, message)
   end
 
