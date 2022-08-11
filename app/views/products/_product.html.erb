@@ -2,11 +2,11 @@
   <%= link_to product_path(product), data: { turbo: false } do %>
     <%= image_tag product.image_url || "product_holder.svg", class: "w-[256px]" %>
     <div class="info text-gray-700">
-      <h2 class="m-1 "><%= product.name %></h2>
+      <h3 class="m-1 "><%= product.name %></h3>
       <span class="inline mt-1 px-2 py-1 text-xs rounded-lg bg-gray-300">淺培</span>
     </div>
   <% end %>
-  <div class="flex flex-col justify-end items-end mt-4">
+  <div class="flex flex-col justify-end items-end">
     <h1 class="font-sans text-2xl text-right font-bold mt-5"><%= number_to_currency product.price, unit: "NT$", precision: 0 %></h1>
     <%= button_to "加入購物車", cart_items_path(product_id: product.id), method: :post, class: "p-2 text-gray-700 text-sm rounded-md bg-gray-300 hover:opacity-75 bg-primary" %>
   </div>
