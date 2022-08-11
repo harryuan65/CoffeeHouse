@@ -41,6 +41,6 @@ class User < ApplicationRecord
   end
 
   def current_cart
-    carts.find_or_create_by!(status: :pending)
+    @cart ||= carts.find_or_create_by!(status: :pending)
   end
 end
