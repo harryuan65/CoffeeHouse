@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 #
-# Fetch items from current cart to initialize order items
+# Map cart items from current_cart to new order items
 #
-class PackCartToNewOrder < ApplicationService
+class MapCartToOrderItems < ApplicationService
   def initialize(current_cart)
     @cart_items = CartItem.includes(:product).where(cart: current_cart)
   end
