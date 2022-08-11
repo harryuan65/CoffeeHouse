@@ -6,7 +6,7 @@ class CartsController < ApplicationController
   delegate :current_cart, to: :current_user
 
   def current
-    @cart = current_user.current_cart
+    @cart = current_cart
     @items = @cart.items.includes(:product)
     @shipment = Shipment.new
   end
