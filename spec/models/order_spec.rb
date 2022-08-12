@@ -4,16 +4,14 @@
 #
 # Table name: orders
 #
-#  id                 :uuid             not null, primary key
-#  user_id            :uuid             not null
-#  product_id         :uuid             not null
-#  payment_type       :string           not null
-#  payment_id         :uuid             not null
-#  category           :string
-#  stripe_customer_id :integer
-#  status             :string
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  id           :uuid             not null, primary key
+#  user_id      :uuid             not null
+#  product_id   :uuid             not null
+#  payment_type :string           not null
+#  payment_id   :uuid             not null
+#  status       :string           default("pending"), not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 require "rails_helper"
 

@@ -8,6 +8,7 @@
 #  name            :string           not null
 #  sku             :string           not null
 #  image_url       :string
+#  category        :string           default("consumable"), not null
 #  price           :float            not null
 #  available_count :integer          default(0), not null
 #  created_at      :datetime         not null
