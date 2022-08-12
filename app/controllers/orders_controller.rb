@@ -7,6 +7,6 @@ class OrdersController < ApplicationController
   def new
     result = MapCartToOrderItems.call(current_cart)
     @order_items = result.output
-    respond_with(result)
+    respond_using(result)
   end
 end

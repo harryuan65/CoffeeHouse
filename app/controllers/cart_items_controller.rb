@@ -9,13 +9,13 @@ class CartItemsController < ApplicationController
     result = AddToCart.call(current_cart, params)
     session[:cart_count] = result.output
 
-    respond_with(result)
+    respond_using(result)
   end
 
   def destroy
     result = RemoveFromCart.call(current_cart, params)
     session[:cart_count] = result.output
 
-    respond_with(result)
+    respond_using(result)
   end
 end

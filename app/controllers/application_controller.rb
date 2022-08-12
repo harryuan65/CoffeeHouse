@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   # Response with flash status based on result
   # @param [ApplicationService::Result] result
   #
-  def respond_with(result)
+  def respond_using(result)
     result.for_response do |status, flash_key, message|
       flash.now[flash_key] = message if message
       render status: status
