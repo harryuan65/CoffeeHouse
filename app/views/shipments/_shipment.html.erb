@@ -1,0 +1,7 @@
+<div class="shipment" data-controller="shipment" id="shipment_info">
+  <%= select_tag :"shipment[country]", shipment_countries_options(@region.code), data: { action: "change->shipment#updateShipmentInfo" }, class: "p-4 min-w-[112px]" %>
+  <% if @region.code == "TW" %>
+    <%= select_tag :"shipment[city]", options_for_select(shipment_tw_cities_options),  class: "p-4 min-w-[112px]" %>
+  <% end %>
+  <%= select_shipment_categories(@shipping_methods) %>
+</div>

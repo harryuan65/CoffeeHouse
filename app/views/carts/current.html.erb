@@ -4,7 +4,9 @@
     <h1 class="text-gray-700">購物車</h1>
     <%= form_with url: check_out_carts_path, method: :post do |f| %>
       <%= render partial: "carts/cart", locals: { cart: @cart, items: @items } %>
-      <hr class="border-gray-500 m-4">
+      <hr class="border-gray-500 my-4">
+      <p class="text-gray-700 my-4">運送方式</p>
+      <%= render "shipments/shipment" %>
       <%= f.submit "結帳", data: { turbo:false }, class: "float-right hover:opacity-80 inline-block text-center w-24 mt-5 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
     <% end %>
   <% else %>

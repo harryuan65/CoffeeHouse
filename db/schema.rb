@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_05_020124) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_12_064324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -74,7 +74,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_05_020124) do
   create_table "order_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "product_id", null: false
     t.uuid "order_id", null: false
-    t.float "price", default: 0.0, null: false
+    t.integer "amount", null: false
+    t.float "total_price", default: 0.0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
@@ -105,6 +106,52 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_05_020124) do
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_products_on_name"
     t.index ["sku"], name: "index_products_on_sku", unique: true
+  end
+
+  create_table "shipments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "region_id", null: false
+    t.uuid "order_id", null: false
+    t.string "name"
+    t.string "email"
+    t.string "city"
+    t.string "address"
+    t.string "status"
+    t.datetime "started_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_shipments_on_order_id"
+    t.index ["region_id"], name: "index_shipments_on_region_id"
+  end
+
+  create_table "shipping_methods", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "provider_id", null: false
+    t.string "name"
+    t.float "fee"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_shipping_methods_on_provider_id"
+  end
+
+  create_table "shipping_providers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "region_id", null: false
+    t.string "name"
+    t.string "tax_id"
+    t.string "address"
+    t.string "email"
+    t.string "contact_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_shipping_providers_on_region_id"
+    t.index ["tax_id"], name: "index_shipping_providers_on_tax_id", unique: true
+  end
+
+  create_table "shipping_regions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "code"
+    t.string "name", null: false
+    t.string "dial_code", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_shipping_regions_on_code"
   end
 
   create_table "stripe_payments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -153,4 +200,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_05_020124) do
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "shipments", "orders"
+  add_foreign_key "shipments", "shipping_regions", column: "region_id"
+  add_foreign_key "shipping_methods", "shipping_providers", column: "provider_id"
+  add_foreign_key "shipping_providers", "shipping_regions", column: "region_id"
 end
