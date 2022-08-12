@@ -8,6 +8,7 @@ class CartsController < ApplicationController
   def current
     @cart = current_cart
     @items = @cart.items.includes(:product)
+    # @type [Shipment] shipment
     shipment = NewShipment.call.output
     @region = shipment.region
     @shipping_methods = @region.shipping_methods
