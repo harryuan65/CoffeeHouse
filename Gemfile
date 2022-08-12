@@ -63,6 +63,7 @@ group :development, :test do
   gem "reek"
   gem "rspec-rails", "5.1.2"
   gem "rubocop-rails"
+  gem "solargraph-rails"
 end
 
 group :development do
