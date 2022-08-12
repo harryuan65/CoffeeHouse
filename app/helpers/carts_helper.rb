@@ -7,10 +7,9 @@ module CartsHelper
     options_for_select(*options)
   end
 
-  def shipment_tw_cities_options(default = nil)
+  def shipment_tw_cities_options
     options = I18n.t("models.shipments.tw_cities").invert.to_a
-    options.push(default) if default
-    options
+    options_for_select(options)
   end
 
   def select_shipment_categories(shipping_methods)
