@@ -1,0 +1,79 @@
+# All randomly generated except for name
+- tax_id: 570482010
+  name: 7-Eleven
+  street: 6-37 Niuchiaopo, Lin 8, Leshan Village
+  city: Kueishan Hsiang
+  area: Taoyuan Hsien
+  phone_number: 03-327-161783
+  country_calling_code: +886
+  country: Taiwan
+  shipping_methods:
+    - name: "cvs_pickup"
+      fee: 65
+    - name: "cvs_pay_pickup"
+      fee: 70
+- tax_id: 11825326
+  name: FamilyMart
+  street: 110-6 Hsinping Rd., Taiwan
+  city: Changhua
+  area: Changhua
+  phone_number: 04-763-3938/763-1138
+  country_calling_code: +886
+  country: Taiwan
+  shipping_methods:
+    - name: "cvs_pickup"
+      fee: 65
+    - name: "cvs_pay_pickup"
+      fee: 70
+- tax_id: 79717865
+  name: HiLife
+  street: 152 Tanfu Rd., Sec. 2
+  city: Tantzu Hsiang
+  area: Taichung Hsien
+  phone_number: 04-253-42310
+  country_calling_code: +886
+  country: Taiwan
+  shipping_methods:
+    - name: "cvs_pickup"
+      fee: 65
+    - name: "cvs_pay_pickup"
+      fee: 70
+- tax_id: 49365977
+  name: OK
+  street: Alley 36, Lane 121, Teh Lin Rd.
+  city: Long Tan Hsiang
+  area: Taoyuan Hsien
+  phone_number: 03-4709415
+  country_calling_code: +886
+  country: Taiwan
+  shipping_methods:
+    - name: "cvs_pickup"
+      fee: 65
+    - name: "cvs_pay_pickup"
+      fee: 70
+- tax_id: 20771954
+  name: BlackCat
+  street: 30, 31th Rd.
+  city: Taichung Ind. Park
+  area: Taichung
+  phone_number: 04-23595080
+  country_calling_code: +886
+  country: Taiwan
+  shipping_methods:
+    - name: "standard_shipping"
+      fee: 100
+    - name: "expedited_shipping"
+      fee: 150
+- tax_id: 88117808
+  name: Taiwan Express
+  street: 31, Pei Hsin Rd., Sec. 1
+  city: Taipei Hsien
+  area: Hsintien
+  phone_number: 02-29111192
+  country_calling_code: +886
+  country: Taiwan
+  shipping_methods:
+    - name: "standard_shipping"
+      fee: 80
+    - name: "expedited_shipping"
+      fee: 120
