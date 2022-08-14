@@ -289,6 +289,7 @@ GEM
       rubocop-performance (= 1.13.3)
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
+    stripe (7.0.0)
     strscan (3.0.3)
     thor (1.2.1)
     tilt (2.0.11)
@@ -341,6 +342,7 @@ DEPENDENCIES
   sprockets-rails
   standard
   stimulus-rails
+  stripe (~> 7.0)
   turbo-rails
   tzinfo-data
   web-console

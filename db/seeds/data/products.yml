@@ -1,35 +1,35 @@
 - name: "Gold Mandheling - Drip Bag x 20 pcs"
-  sku: "bean_gold_mandheling_01"
+  sku: "gold_mandheling_drip_20pcs"
   price: 300
   category: :consumable
   available_count: 7
   content: "<h1>★Golden Mandheling</h1><div><br>Generally refers to the Sumatra trial production influence specialty area fine boil cultivation and processing process, from sprouting up, results raw processing, roasting, grinding and planting, each refers to the flavor of coffee production. The coffee is completely hand semi-picked and finished with a day of washing and sun drying before being screened and selected again and again.<br><br></div><div>Classic special mellow sound and expression but can be called incomparably sour charm still degree, while the world but richness live table rather than the world, good coffee.</div><div>It has seemingly dull long rhyme go taste as well as the general alcoholic degree, and exudes the old fragrance, flavor low practice, just a little bit of acidity, the aftertaste feeling long but not dissipated.</div>"
 - name: "Longer Name Gold Mandheling - Drip Bag x 40 pcs"
-  sku: "bean_gold_mandheling_02"
+  sku: "gold_mandheling_drip_40pcs"
   price: 550
   category: :consumable
   available_count: 5
   content: "<h1>★Longer Name Gold Mandheling</h1><div><br>Generally refers to the Sumatra trial production influence specialty area fine boil cultivation and processing process, from sprouting up, results raw processing, roasting, grinding and planting, each refers to the flavor of coffee production. The coffee is completely hand semi-picked and finished with a day of washing and sun drying before being screened and selected again and again.<br><br></div><div>Classic special mellow sound and expression but can be called incomparably sour charm still degree, while the world but richness live table rather than the world, good coffee.</div><div>It has seemingly dull long rhyme go taste as well as the general alcoholic degree, and exudes the old fragrance, flavor low practice, just a little bit of acidity, the aftertaste feeling long but not dissipated.</div>"
 - name: "OMG The Name Is So Long That Needs A New Line's Gold Mandheling - Drip Bag x 60 pcs"
-  sku: "bean_gold_mandheling_03"
+  sku: "gold_mandheling_drip_60pcs"
   price: 800
   category: :consumable
   available_count: 2
   content: "<h1>★OMG The Name Is So Long That Needs A New Line's Gold Mandheling</h1><div><br>Generally refers to the Sumatra trial production influence specialty area fine boil cultivation and processing process, from sprouting up, results raw processing, roasting, grinding and planting, each refers to the flavor of coffee production. The coffee is completely hand semi-picked and finished with a day of washing and sun drying before being screened and selected again and again.<br><br></div><div>Classic special mellow sound and expression but can be called incomparably sour charm still degree, while the world but richness live table rather than the world, good coffee.</div><div>It has seemingly dull long rhyme go taste as well as the general alcoholic degree, and exudes the old fragrance, flavor low practice, just a little bit of acidity, the aftertaste feeling long but not dissipated.</div>"
 - name: "[TW] 黃金曼特寧 - 濾掛包 20 包"
-  sku: "bean_mandheling_tw_01"
+  sku: "gold_mandheling_tw_drip_20pcs"
   price: 300
   category: :consumable
   available_count: 7
   content: "<h1>★黃金曼特寧</h1><div><br></div><div>黃金曼特寧泛指蘇門達臘產區精緻栽培與加工的曼特寧，從萌芽生長、開花結果到生豆處理、烘培研磨及沖煮品嚐，每一個環節都影響咖啡豆的風味。在製程上，完全手工摘取，經過半水洗日晒乾燥後，再經四次人工篩選。</div><div><br></div><div>古典獨特的強烈口感與香氣，帶有濃郁的醇度和馥鬱而活潑的動感卻不酸澀，醇度、苦度可以表露無遺，品質堪稱世界之最，一度被專家認為是世界上最好的咖啡。</div><div><br></div><div>它有濃厚的口感以及像酒一般的醇度，並帶有濃烈野香，風味低沈老練，只有一點點酸性，餘韻深入喉嚨久久不去。</div>"
 - name: "[TW] 名字比較長一點的黃金曼特寧 - 濾掛包 40 包"
-  sku: "bean_mandheling_tw_02"
+  sku: "gold_mandheling_tw_drip_40pcs"
   price: 550
   category: :consumable
   available_count: 5
   content: "<h1>★名字比較長一點的黃金曼特寧</h1><div><br></div><div>黃金曼特寧泛指蘇門達臘產區精緻栽培與加工的曼特寧，從萌芽生長、開花結果到生豆處理、烘培研磨及沖煮品嚐，每一個環節都影響咖啡豆的風味。在製程上，完全手工摘取，經過半水洗日晒乾燥後，再經四次人工篩選。</div><div><br></div><div>古典獨特的強烈口感與香氣，帶有濃郁的醇度和馥鬱而活潑的動感卻不酸澀，醇度、苦度可以表露無遺，品質堪稱世界之最，一度被專家認為是世界上最好的咖啡。</div><div><br></div><div>它有濃厚的口感以及像酒一般的醇度，並帶有濃烈野香，風味低沈老練，只有一點點酸性，餘韻深入喉嚨久久不去。</div>"
 - name: "[TW] 哇靠名字有夠長欸怎麼辦要換行欸的黃金曼特寧 - 濾掛包 60 包"
-  sku: "bean_mandheling_tw_03"
+  sku: "gold_mandheling_tw_drip_60pcs"
   price: 800
   category: :consumable
   available_count: 2
