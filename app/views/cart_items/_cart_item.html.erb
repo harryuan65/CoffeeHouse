@@ -1,6 +1,6 @@
-<tr id="<%= dom_id(cart_item) %>" class=" bg-white max-w-3xl" data-controller="cart">
+<tr id="<%= dom_id(cart_item) %>" class="bg-white max-w-3xl shadow-sm" data-controller="cart">
   <td data-name="image" class="p-2 min-w-[80px] w-[14%]"><%= image_tag product.image_url || "product_holder.svg" %></td>
-  <td data-name="name" class="p-4 w-[38%] align-baseline"><%= link_to product.name, product_path(product) %></td>
+  <td data-name="name" class="p-4 w-[38%] align-baseline"><%= link_to product.name, product_path(product), class: "hover:underline" %></td>
   <td data-name="price" class="p-2 w-[15%]"><%= number_to_currency(product.price, unit: "NT$ ", precision: 0) %></td>
   <td data-name="amount" class="p-2 w-[17%] select-none">
     <div class="flex items-center">
