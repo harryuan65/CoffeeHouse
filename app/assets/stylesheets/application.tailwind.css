@@ -26,4 +26,49 @@
   input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
   }
+
+  .success {
+    opacity: 0;
+    animation: fade-in 2s linear forwards;
+  }
+  .success path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation-name: dash;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+  }
+  .success #circle {
+    animation-duration: 2s;
+  }
+  .success #check {
+    animation-duration: 3.5s;
+    animation-delay: 1s;
+  }
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  .warning path {
+    transform: scale(0.2);
+    animation: shake 0.4s ease-in-out forwards;
+    transform-origin: center;
+  }
+  @keyframes shake {
+    20% {
+      transform: scale(0.4) rotate(-20deg);
+    }
+    70% {
+      transform: scale(0.6) rotate(30deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 }

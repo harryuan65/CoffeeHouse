@@ -20,6 +20,12 @@ Rails.application.routes.draw do
   resources :cart_items
   resources :orders
   resources :shipments
+  resources :stripe, only: [:create] do
+    collection do
+      get :payment_success
+      get :payment_cancel
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

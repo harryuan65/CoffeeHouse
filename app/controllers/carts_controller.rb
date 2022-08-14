@@ -19,6 +19,12 @@ class CartsController < ApplicationController
     redirect_to new_order_path
   end
 
+  # TODO: V2 check_out_carts_path
+  # Turbo stream needs a redirect
+  # def check_out
+  #   redirect_to new_order_path
+  # end
+
   def cart_items_params
     params.require(:cart_items)
   end
