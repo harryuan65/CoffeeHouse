@@ -267,16 +267,10 @@ en:
         ZW: 辛巴威
     shipping_methods:
       names:
-        cvs_pickup_7_11: 7-11 超商取貨
-        cvs_pay_pickup_7_11: 7-11 超商取貨付款
-        cvs_pickup_ok: OK 超商取貨
-        cvs_pay_pickup_ok: OK 超商取貨付款
-        cvs_pickup_family_mart: 全家超商取貨
-        cvs_pay_pickup_family_mart: 全家超商取貨付款
-        cvs_pickup_hi_life: 萊爾富超商取貨
-        cvs_pay_pickup_hi_life: 萊爾富超商取貨付款
-        standard_shipping: 標準宅配
-        expedited_shipping: 宅速配
+        cvs_pickup: "%{company}超商取貨(%{price})"
+        cvs_pay_pickup: "%{company}超商取貨付款(%{price})"
+        standard_shipping: "%{company}標準運送(%{price})"
+        expedited_shipping: "%{company}快速送達(%{price})"
     shipments:
       tw_cities:
         TW-KEE: 基隆市

@@ -12,10 +12,20 @@ module CartsHelper
     options_for_select(options)
   end
 
-  def select_shipment_categories(shipping_methods)
+  def shipment_methods_options(shipping_methods)
     options = shipping_methods.map do |shipping_method|
-      I18n.t("models.shipping_methods.names.#{shipping_method.name}")
+      name, fee = shipping_method.info.values_at(:name, :fee)
+      provider_name = shipping_method.provider.name
+      shipment_method_translation(name, provider_name, fee)
     end
-    select_tag :"shipment[category]", options_for_select(options), class: "p-4 min-w-[112px]"
+    options_for_select(options)
+  end
+
+  private
+
+  def shipment_method_translation(name, provider_name, fee)
+    I18n.t("models.shipping_methods.names.#{name}",
+      company: provider_name,
+      price: number_to_currency(fee, unit: "NT$ ", precision: 0))
   end
 end

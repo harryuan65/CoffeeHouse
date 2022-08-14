@@ -14,4 +14,8 @@
 #
 class ShippingMethod < ApplicationRecord
   belongs_to :provider, class_name: "ShippingProvider", foreign_key: "provider_id"
+
+  def info
+    {name: name, fee: fee}
+  end
 end

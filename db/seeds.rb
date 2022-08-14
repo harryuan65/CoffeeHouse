@@ -60,21 +60,33 @@ provider = ShippingProvider.create!(
   region: default_region
 )
 
-[
-  {name: "cvs_pickup_7_11", fee: 65},
-  {name: "cvs_pay_pickup_7_11", fee: 70},
-  {name: "cvs_pickup_ok", fee: 40},
-  {name: "cvs_pay_pickup_ok", fee: 45},
-  {name: "cvs_pickup_family_mart", fee: 60},
-  {name: "cvs_pay_pickup_family_mart", fee: 65},
-  {name: "cvs_pickup_hi_life", fee: 40},
-  {name: "cvs_pay_pickup_hi_life", fee: 45},
-  {
+providers_data = Psych.safe_load(File.read("db/seeds/tw_fake_providers.yml"))
+providers = providers_data["providers"]
+providers.each do |provider_hash|
+  provider_hash.symbolize_keys!
+  shipping_methods = provider_hash.delete(:shipping_methods)
+  provider = ShippingProvider.create!(
+    name: provider_hash[:name],
+    tax_id: provider_hash[:tax_id], # randomly generated
+    address: provider_hash.values_at(:street, :city, :area, :country).join(", "),
+    email: "#{provider_hash[:name].dasherize}@gmail.com",
+    contact_number: "#{provider_hash[:country_calling_code]}#{provider_hash[:phone_number]}",
+    region: default_region
+  )
+  shipping_methods.each { |mtd| provider.shipping_methods.create!(mtd) }
+end
+
+ShippingRegion.where.not(code: "TW").each do |region|
+  provider = ShippingProvider.create!(
+    name: "Ruby Express #{region.code}",
+    tax_id: Faker::Company.ein,
+    address: Faker::Address.full_address,
+    email: Faker::Internet.email,
+    contact_number: Faker::PhoneNumber.phone_number,
+    region: region
+  )
+  provider.shipping_methods.create!(
     name: "standard_shipping",
-    fee: 80
-  },
-  {
-    name: "expedited_shipping",
-    fee: 150
-  }
-].each { |shipping_method| provider.shipping_methods.create!(shipping_method) }
+    fee: 1000
+  )
+end
