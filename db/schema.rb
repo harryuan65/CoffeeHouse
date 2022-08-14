@@ -158,7 +158,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_064324) do
     t.integer "amount", null: false
     t.string "currency", null: false
     t.json "response"
-    t.string "stripe_customer_id", null: false
     t.string "stripe_subscription_id"
     t.string "stripe_invoice_id"
     t.datetime "created_at", null: false
@@ -183,11 +182,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_064324) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.string "stripe_customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["stripe_customer_id"], name: "index_users_on_stripe_customer_id", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 

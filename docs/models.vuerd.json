@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -948,
-    "scrollLeft": -565,
+    "scrollTop": -918,
+    "scrollLeft": -592,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -139,6 +139,52 @@
             "id": "ef8217e1-502e-4488-b4f3-7f1797c70bd2"
           },
           {
+            "name": "stripe_customer_id",
+            "comment": "uniq, cus_xxx",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 116.29588317871094,
+              "widthComment": 82.5609130859375,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "4ec7e592-e41b-47f7-a548-980583a018aa"
+          },
+          {
+            "name": "created_at",
+            "comment": "",
+            "dataType": "timestamp",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 66.16795349121094,
+              "widthComment": 60,
+              "widthDataType": 65.45292663574219,
+              "widthDefault": 60
+            },
+            "id": "c5eb7cd1-41a7-4c27-b08f-b6adc2514db3"
+          },
+          {
             "name": "updated_at",
             "comment": "",
             "dataType": "timestamp",
@@ -163,10 +209,10 @@
           }
         ],
         "ui": {
-          "active": true,
+          "active": false,
           "left": 603.8613,
-          "top": 1216.6389,
-          "zIndex": 31,
+          "top": 1217.6389,
+          "zIndex": 59,
           "widthName": 60,
           "widthComment": 60
         },
@@ -578,29 +624,6 @@
             "id": "f671aed8-4117-4fba-af2a-fcd196c35b4f"
           },
           {
-            "name": "stripe_customer_id",
-            "comment": "cus_xxx",
-            "dataType": "varchar",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 116.29588317871094,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "4ec7e592-e41b-47f7-a548-980583a018aa"
-          },
-          {
             "name": "amount",
             "comment": "",
             "dataType": "integer",
@@ -718,9 +741,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 1526.0602,
-          "top": 1330.0829,
-          "zIndex": 3,
+          "left": 1130.0602,
+          "top": 1179.0829,
+          "zIndex": 33,
           "widthName": 100.69590759277344,
           "widthComment": 60
         },
@@ -2031,8 +2054,8 @@
           "columnIds": [
             "db58a0fd-402f-4117-a9ab-65a93b2201b4"
           ],
-          "x": 700.6242623413086,
-          "y": 1216.6389,
+          "x": 711.6887307250977,
+          "y": 1217.6389,
           "direction": "top"
         },
         "end": {
@@ -2135,8 +2158,8 @@
           "columnIds": [
             "db58a0fd-402f-4117-a9ab-65a93b2201b4"
           ],
-          "x": 894.1501870239258,
-          "y": 1216.6389,
+          "x": 927.343592175293,
+          "y": 1217.6389,
           "direction": "top"
         },
         "end": {
