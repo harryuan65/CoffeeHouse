@@ -4,9 +4,12 @@
   <td data-name="price" class="p-2 w-[15%]"><%= number_to_currency(product.price, unit: "NT$ ", precision: 0) %></td>
   <td data-name="amount" class="p-2 w-[17%] select-none">
     <div class="flex items-center">
-      <span class="ml-3 inline-block bg-gray-300 text-gray-700 w-7 h-7 cursor-pointer text-center" data-action="click->cart#decrementItem">-</span>
-      <%= number_field_tag :amount, cart_item.amount, in: 1..product.available_count, autocomplete: "off", readonly: true, name: "cart_items[#{cart_item.id}][amount]", class: "text-center outline-none min-w-[28px] max-h-[28px] border border-gray-400 p-[2px]", data: { "cart-target": "amount" } %>
-      <span class="inline-block bg-gray-300 text-gray-700 w-7 h-7 cursor-pointer text-center" data-action="click->cart#incrementItem">+</span>
+      <%= button_tag "-", type: "button", disabled: cart_item.amount == 1, data: { action: "click->cart#decrementItem", "cart-target": "decrement" }, class: "inline-block bg-gray-300 text-gray-700 w-7 h-7 cursor-pointer text-center disabled:opacity-70" %>
+      <%= number_field_tag :amount, cart_item.amount, in: 1..product.available_count,
+         autocomplete: "off", readonly: true, name: "cart_items[#{cart_item.id}][amount]",
+         class: "text-center outline-none min-w-[28px] max-h-[28px] border border-gray-400 p-[2px] disabled:bg-gray-400",
+         data: { "cart-target": "amount" } %>
+        <%= button_tag "+", type: "button", disabled: product.available_count == cart_item.amount, data: { action: "click->cart#incrementItem", "cart-target": "increment" }, class: "inline-block bg-gray-300 text-gray-700 w-7 h-7 cursor-pointer text-center disabled:opacity-70" %>
     </div>
   </td>
   <td data-name="subtotal" class="p-2 w-[15%]"><%= number_to_currency(product.price * cart_item.amount, unit: "NT$ ", precision: 0) %></td>

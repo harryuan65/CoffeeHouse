@@ -14,10 +14,9 @@ class CartsController < ApplicationController
     @shipping_methods = @region.shipping_methods
   end
 
+  # Turbo stream needs a redirect
   def check_out
-    @cart = current_cart
-    CartItem.update(cart_items_params.keys, cart_items_params.values)
-    redirect_to new_order_path(cart_id: @cart.id)
+    redirect_to new_order_path
   end
 
   def cart_items_params

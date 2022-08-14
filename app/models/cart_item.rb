@@ -14,5 +14,8 @@
 class CartItem < ApplicationRecord
   belongs_to :product
   belongs_to :cart
+
   after_destroy_commit { broadcast_remove_to "cart_items" }
+
+  validates :amount, numericality: {greater_than_or_equal_to: 1}
 end

@@ -1,0 +1,8 @@
+<% if @cart_item %>
+  <% if !@cart_item.association_cached?(:product) %>
+    <% raise "Product Not loaded" %>
+  <% end %>
+  <%= turbo_stream.replace(dom_id(@cart_item), partial: "cart_items/cart_item", locals: {cart_item: @cart_item, product: @cart_item.product}) %>
+<% else %>
+  <%= turbo_stream.update("flash", partial: "shared/flash") %>
+<% end %>
