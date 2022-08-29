@@ -26,11 +26,13 @@ def create_stripe_product(product, description)
     description: description
   )
 
-  Stripe::Price.create(
+  price = Stripe::Price.create(
     currency: "twd",
     unit_amount: product.price.to_i * 100,
     product: stripe_product["id"]
   )
+
+  product.update(stripe_price_id: price.id)
 
   puts "Created stripe product: #{stripe_product["name"]}"
 end
