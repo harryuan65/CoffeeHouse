@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   #
   def respond_using(result)
     result.for_response do |status, flash_key, message|
-      flash.now[flash_key] = message if message
+      flash.now[flash_key] = message if message.present?
       render status: status
     end
   end

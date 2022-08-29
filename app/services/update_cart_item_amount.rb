@@ -24,7 +24,7 @@ class UpdateCartItemAmount < ApplicationService
     if @cart_item.save
       complete(@cart_item, :ok)
     else
-      complete(nil, :bad_request, errors.full_messages * "\n")
+      complete(@cart_item, :bad_request, errors.full_messages * "\n")
     end
   end
 end

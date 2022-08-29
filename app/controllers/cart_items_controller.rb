@@ -21,7 +21,6 @@ class CartItemsController < ApplicationController
 
   def update
     result = UpdateCartItemAmount.call(params)
-    # @type [CartItem|NilClass] @cart_item
     @cart_item = result.output
     respond_using(result)
   end
