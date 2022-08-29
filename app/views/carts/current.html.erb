@@ -1,8 +1,8 @@
 <%# Only listen to web socket when there's any item to watch %>
-<div class="max-w-[70vw] m-auto h-screen py-5" id="cart_content">
+<div class="max-w-[70vw] m-auto py-5 min-h-screen" id="cart_content">
   <% if @items.any? %>
     <h1 class="text-gray-700">購物車</h1>
-    <%= form_with url: check_out_carts_path do |f| %>
+    <%= form_with url: stripe_checkout_path do |f| %>
       <%= render partial: "carts/cart", locals: { cart: @cart, items: @items } %>
       <hr class="border-gray-500 my-4">
       <p class="text-gray-700 my-4">運送方式</p>
