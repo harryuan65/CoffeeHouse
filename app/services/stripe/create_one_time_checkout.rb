@@ -15,6 +15,17 @@ module Stripe
     #
     def initialize(options)
       @options = options
+      validate
+    end
+
+    # :reek:FeatureEnvy
+    def validate
+      validate_arg(options) do |opt|
+        opt.validate :user, is_a: User, required: true
+        opt.validate :line_items, is_a: Array, of: Stripe::LineItemVO, required: true
+        opt.validate :success_url, is_a: String, required: true
+        opt.validate :cancel_url, is_a: String, required: true
+      end
     end
 
     def call

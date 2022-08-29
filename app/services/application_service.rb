@@ -4,6 +4,7 @@
 # Interface for services
 #
 class ApplicationService
+  include Validator
   #
   # Stores the result of a service call.
   #
