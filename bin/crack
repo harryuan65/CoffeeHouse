@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+if File.exist?(File.join(__dir__, "../Gemfile"))
+  path = `bundle info #{ARGV.first} --path`
+  `code #{path}`
+else
+  exit
+end
