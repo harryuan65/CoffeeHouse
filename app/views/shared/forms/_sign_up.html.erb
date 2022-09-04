@@ -1,15 +1,15 @@
 <div class="form-comtainer flex flex-col justify-center items-center bg-white w-[30rem] min-h-[30rem] ">
   <div class="logo p-4">
-    <h1 class="text-primary text-center text-4xl font-bold">COFFEEYA</h1>
+    <h1 class="text-primary text-center text-4xl font-bold">Coffee House</h1>
   </div>
   <%= turbo_frame_tag "form_flash", class: "w-full" do %>
     <%= render "shared/forms/form_flash" %>
   <% end %>
   <div class="form flex flex-col justify-center items-center">
-    <span class="my-4 text-md">註冊 Coffeeya 帳號</span>
+    <span class="my-4 text-md">註冊 Coffee House 帳號</span>
     <%= form_with(model: @user, url: user_registration_path, data: { controller: "form", turbo_frame: "modal" }, class: "w-80") do |f| %>
       <div class="field">
-        <%= f.email_field :email, data: { action: "input->form#updateEditing" }, required: true, placeholder: "Coffeeya 帳號", autofocus: true, autocomplete: "email", class: "w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+        <%= f.email_field :email, data: { action: "input->form#updateEditing" }, required: true, placeholder: "CoffeeHouse 帳號", autofocus: true, autocomplete: "email", class: "w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
       </div>
       <div class="field">
         <%= f.password_field :password, data: { action: "input->form#updateEditing" }, required: true, placeholder: "密碼", autocomplete: "new-password", class: "mt-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
