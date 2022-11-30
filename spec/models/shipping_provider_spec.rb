@@ -1,5 +1,5 @@
 require "rails_helper"
 
-RSpec.describe ShipmentProvider, type: :model do
+RSpec.describe ShippingProvider, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

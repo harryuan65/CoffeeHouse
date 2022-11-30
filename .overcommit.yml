@@ -32,6 +32,7 @@ PreCommit:
   RuboCop:
     enabled: true
     on_warn: fail
+    command: ["bundle", "exec", "rubocop"]
   ErbLint:
     enabled: true
     description: "Analyze with ERB Lint"

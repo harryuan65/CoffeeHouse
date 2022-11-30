@@ -78,5 +78,10 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  gem "factory_bot_rails"
+  gem "rubocop-rspec", require: false
+end
+
 gem "devise", "~> 4.8"
 gem "stripe", "~> 7.0"
