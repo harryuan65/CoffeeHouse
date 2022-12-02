@@ -7,7 +7,11 @@ inherit_gem:
 
 AllCops:
   TargetRubyVersion: 3.0.3
+  NewCops: enable
 
 Style/RedundantReturn:
   Exclude:
     - app/controllers/**/*
+
+RSpec/FilePath:
+  Enabled: false # bug
