@@ -17,6 +17,10 @@ module Stripe
       }
     end
 
+    def ==(other)
+      price == other.price && quantity == other.quantity
+    end
+
     alias_method :as_json, :to_h
   end
 end

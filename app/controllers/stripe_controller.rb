@@ -4,7 +4,7 @@ class StripeController < ApplicationController
   def checkout
     CheckExistingStripeUser.call(current_user.id)
     # @type [Array<LineItem>] line_items
-    line_items = Stripe::CartToLineItems.call(params).output
+    line_items = Stripe::CartToLineItems.call(current_user.current_cart).output
 
     stripe_session = Stripe::CreateOneTimeCheckout.call(
       user: current_user,

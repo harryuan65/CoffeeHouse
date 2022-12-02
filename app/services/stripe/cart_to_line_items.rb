@@ -5,10 +5,8 @@ module Stripe
   # Map current cart items to stripe line items for checkout
   #
   class CartToLineItems < ApplicationService
-    def initialize(params)
-      @cart_items = CartItem.includes(:product)
-        .select(:id, :product_id, :amount)
-        .find(params[:cart_items].keys)
+    def initialize(cart)
+      @cart_items = cart.items.includes(:product).select(:id, :product_id, :amount)
     end
 
     def call
