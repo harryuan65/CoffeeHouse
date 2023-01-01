@@ -1,24 +1,13 @@
-# README
+# CoffeeHouse
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A small dummy ecommerce project where I play with Turbo Frames/Stream and Stripe.
 
-Things you may want to cover:
+> **Note**
+> Work In Progress
 
-* Ruby version
 
-* System dependencies
+# Environment
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+|env|version|
+|---|---|
+|ruby|3.0.3|
