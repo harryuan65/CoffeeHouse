@@ -14,10 +14,13 @@ RSpec.describe AddToCart do
   context "when the item is in user's current cart" do
     subject(:adding_to_cart) { described_class.call(user.current_cart, params) }
 
-    it "does not add additional item to the cart" do |example|
-      original_amount = 1
+    before do
+      existing_amount = 1
       product = create(:product, id: product_id)
-      user.current_cart.items.create!(product: product, amount: original_amount)
+      user.current_cart.items.create!(product: product, amount: existing_amount)
+    end
+
+    it "does not add additional item to the cart" do |example|
       expect { adding_to_cart }.not_to change { user.current_cart.items.find_by(product_id: product_id).amount }
     end
   end
