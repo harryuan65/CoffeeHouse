@@ -14,30 +14,37 @@ end
 
 #
 # Create a stripe product for the product record, :reek:FeatureEnvy
+
+#
+# Create stripe product using product relation.
+#
 # @param [Product] product
 # @param [String] description: short desc for stripe product
 #
+# @return [NilClass]
+#
 def create_stripe_product(product, description)
-  return unless Stripe.api_key ||= ENV["STRIPE_API_KEY"]
+  sku, name, price = product.values_at(:sku, :name, :price)
 
-  stripe_product = Stripe::Product.create(
-    id: product.sku,
-    name: product.name,
+  new_stripe_product = Stripe::Product.create(
+    id: sku,
+    name: name,
     description: description
   )
 
   price = Stripe::Price.create(
     currency: "twd",
-    unit_amount: product.price.to_i * 100,
-    product: stripe_product["id"]
+    unit_amount: price.to_i * 100,
+    product: new_stripe_product["id"]
   )
 
   product.update(stripe_price_id: price.id)
-
-  puts "Created stripe product: #{stripe_product["name"]}"
+  puts "Created stripe product: #{new_stripe_product["name"]}"
 end
 
 # Main Seeding Logic
+
+abort("Stripe api key is not set") unless Stripe.api_key ||= ENV["STRIPE_API_KEY"]
 
 data_path = Rails.root.join("db/seeds/data/products.yml")
 products = Psych.safe_load(File.read(data_path), [Symbol])
@@ -48,5 +55,9 @@ products.each do |hash|
 
   product = Product.create!(hash)
   product.content.update!(body: ActionText::Content.new(content))
-  create_stripe_product(product, action_text_content_excerpt(content))
+  if (stripe_product = Stripe::Product.retrieve(product.sku))
+    puts "Stripe product already exists: #{stripe_product["name"]}"
+  else
+    create_stripe_product(product, action_text_content_excerpt(content))
+  end
 end
