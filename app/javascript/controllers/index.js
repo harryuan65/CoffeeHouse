@@ -5,6 +5,7 @@
 import { application } from './application'
 
 import CartController from './cart_controller.js'
+import ConfettiController from './confetti_controller.js'
 import FormController from './form_controller.js'
 import ModalController from './modal_controller.js'
 import NumberFieldController from './number_field_controller.js'
@@ -12,6 +13,7 @@ import RefreshController from './refresh_controller.js'
 import ShipmentController from './shipment_controller.js'
 
 application.register('cart', CartController)
+application.register('confetti', ConfettiController)
 application.register('form', FormController)
 application.register('modal', ModalController)
 application.register('number-field', NumberFieldController)

@@ -8,6 +8,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :image_url
       t.string :category, null: false, default: "consumable"
       t.float :price, null: false
+      t.string :stripe_price_id, index: {unique: true}
       t.integer :available_count, null: false, default: 0
 
       t.timestamps

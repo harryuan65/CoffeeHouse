@@ -8,9 +8,8 @@ class CartsController < ApplicationController
   def current
     @cart = current_cart
     @items = @cart.items.includes(:product)
-    # @type [Shipment] shipment
-    shipment = NewShipment.call.output
-    @region = shipment.region
+    default_region = ShippingRegion.find_by!(code: "TW")
+    @region = default_region
     @shipping_methods = @region.shipping_methods
   end
 
@@ -18,6 +17,12 @@ class CartsController < ApplicationController
   def check_out
     redirect_to new_order_path
   end
+
+  # TODO: V2 check_out_carts_path
+  # Turbo stream needs a redirect
+  # def check_out
+  #   redirect_to new_order_path
+  # end
 
   def cart_items_params
     params.require(:cart_items)

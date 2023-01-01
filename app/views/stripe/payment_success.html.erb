@@ -1,0 +1,30 @@
+<div class="max-w-[70vw] m-auto h-screen py-5 flex flex-col justify-center items-center" data-controller="confetti">
+  <div class="h-96 flex flex-col justify-center items-center gap-12">
+    <svg
+      class="success"
+      width="210"
+      height="210"
+      viewBox="0 0 210 210"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        id="check"
+        d="M63.1094 98.0186L97.3203 135.719L193.32 32.0391"
+        stroke="#6DC367"
+        stroke-width="17"
+        stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path
+        id="circle"
+        d="M157.109 24.36C142.102 14.6423 124.21 9 105 9C51.9807 9 9 51.9807 9 105C9 158.019 51.9807 201 105 201C158.019 201 201 158.019 201 105C201 94.2564 199.235 83.9251 195.98 74.28"
+        stroke="#6DC467"
+        stroke-width="17"
+        stroke-linecap="round" />
+    </svg>
+    <p class="text-gray-700 text-lg">我們已收到您的訂單，感謝您的購買！</p>
+    <div class="actions">
+      <%= link_to '回首頁', root_path, class: "hover:opacity-80 w-32 inline-block text-center bg-gray-300 text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+      <%= link_to '繼續逛逛', root_path, class: "hover:opacity-80 w-32 inline-block text-center bg-gray-300 text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+    </div>
+  </div>
+</div>

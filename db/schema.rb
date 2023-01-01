@@ -101,11 +101,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_064324) do
     t.string "image_url"
     t.string "category", default: "consumable", null: false
     t.float "price", null: false
+    t.string "stripe_price_id"
     t.integer "available_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_products_on_name"
     t.index ["sku"], name: "index_products_on_sku", unique: true
+    t.index ["stripe_price_id"], name: "index_products_on_stripe_price_id", unique: true
   end
 
   create_table "shipments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
