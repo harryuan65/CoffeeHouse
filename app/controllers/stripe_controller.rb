@@ -1,5 +1,6 @@
 class StripeController < ApplicationController
   before_action :check_session, only: [:checkout]
+  skip_forgery_protection only: :webhook # it's ok since stripe doesn't have the csrf token and the signature should match
 
   def checkout
     CheckExistingStripeUser.call(current_user.id)
@@ -14,5 +15,13 @@ class StripeController < ApplicationController
     ).output
 
     redirect_to stripe_session.url, allow_other_host: true
+  end
+
+  def webhook
+    payload = request.body.read
+    sig_header = request.env["HTTP_STRIPE_SIGNATURE"]
+    result = Stripe::EventDispatcher.call(payload, sig_header)
+
+    return head result.status
   end
 end

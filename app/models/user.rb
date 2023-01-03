@@ -40,4 +40,8 @@ class User < ApplicationRecord
   def current_cart
     @cart ||= carts.find_or_create_by!(status: :pending)
   end
+
+  def self.from_stripe_customer(customer_id)
+    find_by!(stripe_customer_id: customer_id)
+  end
 end

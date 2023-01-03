@@ -15,5 +15,7 @@
 #  updated_at             :datetime         not null
 #
 class StripePayment < ApplicationRecord
-  belongs_to :order
+  def error_message
+    response.dig("last_payment_error", "message")
+  end
 end

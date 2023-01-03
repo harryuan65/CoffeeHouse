@@ -16,9 +16,9 @@
 class Order < ApplicationRecord
   extend StringEnum
   belongs_to :user
-  belongs_to :cart
   belongs_to :payment, polymorphic: true
+  has_many :items, class_name: "OrderItem"
 
-  enum status: string_enum(%w[pending completed canceled])
+  enum status: string_enum(%w[pending completed canceled failed])
   enum category: string_enum(%w[consumable subscription])
 end
