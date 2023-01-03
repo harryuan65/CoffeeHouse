@@ -84,14 +84,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_064324) do
 
   create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
-    t.uuid "product_id", null: false
     t.string "payment_type", null: false
     t.uuid "payment_id", null: false
     t.string "status", default: "pending", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["payment_type", "payment_id"], name: "index_orders_on_payment"
-    t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -201,7 +199,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_064324) do
   add_foreign_key "carts", "users"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
-  add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "shipments", "orders"
   add_foreign_key "shipments", "shipping_regions", column: "region_id"
