@@ -36,3 +36,5 @@
 /node_modules
 /dev
 .env
+
+/config/credentials/development.key
