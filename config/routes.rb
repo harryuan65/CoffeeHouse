@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     post :checkout
     get :payment_success
     get :payment_cancel
+    post :webhook
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
