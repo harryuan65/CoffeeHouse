@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Launch a stripe client to test webhook locally
+# Ref: https://dashboard.stripe.com/test/webhooks/create?endpoint_location=local
+
+stripe listen --forward-to localhost:3000/stripe/webhook
+# stripe trigger payment_intent.succeeded
