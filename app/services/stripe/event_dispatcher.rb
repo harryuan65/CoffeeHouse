@@ -64,7 +64,13 @@ module Stripe
     end
 
     def save_for_debug
-      ::File.write("stripe/#{@event.type}-#{Time.now.strftime("%Y%m%d%H-%M-%S")}.json", JSON.pretty_generate(data_object))
+      filename = "#{@event.type}-#{Time.now.strftime("%Y%m%d%H-%M-%S")}.json"
+      dir = "spec/fixtures/files/stripe"
+      if !::File.directory?(dir)
+        require "fileutils"
+        ::FileUtils.mkdir_p(dir)
+      end
+      ::File.write(Rails.root.join(dir, filename), JSON.pretty_generate(data_object))
     end
   end
 end
