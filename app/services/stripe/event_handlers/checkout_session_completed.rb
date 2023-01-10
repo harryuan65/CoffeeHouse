@@ -45,8 +45,9 @@ module Stripe
       # @return [String] "cus_xxx"
       def customer = @checkout_session[:customer]
 
+      # Stripe amount unit is multiplied by 100. The actual amount should be divided by 100
       # @return [Integer]
-      def amount = @checkout_session[:amount_total]
+      def amount = (@checkout_session[:amount_total] / 100)
 
       # @return [String] "twd"
       def currency = @checkout_session[:currency]
