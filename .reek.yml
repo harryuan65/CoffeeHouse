@@ -12,6 +12,8 @@ directories:
       enabled: false
     InstanceVariableAssumption:
       enabled: false
+    TooManyInstanceVariables:
+      enabled: false
   "**/app/controllers/users":
     IrresponsibleModule:
       enabled: false
