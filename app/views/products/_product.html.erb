@@ -3,6 +3,7 @@
     <%= image_tag product.image_url || "product_holder.svg", class: "w-[256px]" %>
     <div class="info text-gray-700">
       <h3 class="m-1 "><%= product.name %></h3>
+      <%# This will be the tags for products %>
       <span class="inline mt-1 px-2 py-1 text-xs rounded-lg bg-gray-300">淺培</span>
     </div>
   <% end %>
