@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :order_item do
-    association :order
+  factory :cart_item do
+    association :cart
     association :product
     amount { 1 }
   end
