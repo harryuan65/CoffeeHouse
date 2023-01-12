@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  around_action { |controller, action| switch_locale(&action) }
   include ErrorHandler
 
   private
@@ -27,5 +28,18 @@ class ApplicationController < ActionController::Base
       flash.now[flash_key] = message if message.present?
       render status: status
     end
+  end
+
+  def switch_locale(&action)
+    locale = extract_locale_from_accept_language_header
+
+    locale = :en if !locale || I18n.available_locales.exclude?(locale)
+    I18n.locale = locale
+    I18n.with_locale(locale, &action)
+  end
+
+  def extract_locale_from_accept_language_header
+    lang = request.env["HTTP_ACCEPT_LANGUAGE"]
+    lang.split(",")[0].to_sym if lang
   end
 end
