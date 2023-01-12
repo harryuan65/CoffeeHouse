@@ -1,4 +1,4 @@
-<div class="max-w-[70vw] m-auto h-screen py-5">
+<div class="max-w-[70vw] m-auto min-h-screen py-5">
   <h1 class="text-gray-700"><%= t("views.orders.confirm_checkout") %></h1>
   <%= form_with url: orders_path, data: { turbo: false } do |f| %>
     <%= render partial: "orders/order", locals: { items: @order.items } %>
@@ -6,6 +6,8 @@
     <%= render "orders/payment_methods" %>
     <p class="text-gray-700 my-4"><%= t("views.orders.shipment_method") %></p>
     <%= render "shipments/shipment" %>
-    <%= f.submit t("views.orders.checkout"), class: "cursor-pointer float-right hover:opacity-80 inline-block text-center w-24 mt-5 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+    <div class="relative w-full h-10">
+      <%= f.submit t("views.orders.checkout"), class: "cursor-pointer absolute right-0 hover:opacity-80 inline-block text-center min-w-24 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border border-gray-300 rounded-sm" %>
+    </div>
   <% end %>
 </div>

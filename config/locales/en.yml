@@ -332,7 +332,7 @@ en:
       count: Count
       total_price: Total Price
       payment_method: Payment Method
-      choose_a_payment_method: Choose a payment method
+      choose_a_payment_method: Choose a method
       confirm_checkout: Confirm Checkout
       shipment_method: Shipment Method
       checkout: Checkout
