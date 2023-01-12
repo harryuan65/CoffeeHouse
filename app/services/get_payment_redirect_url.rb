@@ -19,7 +19,7 @@ class GetPaymentRedirectUrl < ApplicationService
     when "stripe"
       stripe_checkout_path(order_id: @order.id)
     else
-      raise ActiveRecord::RecordNotFound.new("Payment method not supported: #{@payment_method}")
+      raise ActiveRecord::RecordNotFound.new(I18n.t("services.get_payment_redirect_url.payment_method_not_supported", method: @payment_method))
     end
   end
 end

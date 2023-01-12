@@ -55,7 +55,7 @@ class CreateOrder < ApplicationService
       id, amount_str = info.values_at(:id, :amount)
       amount = amount_str.to_i
       product = products_index_mapping[id]
-      raise ActiveRecord::RecordInvalid.new("Product not enough") if amount > product.available_count
+      raise ActiveRecord::RecordInvalid.new(I18n.t("services.create_order.amount_exceeded")) if amount > product.available_count
       order.items.build(product: product, amount: amount, total_price: product.price * amount)
     end
   end

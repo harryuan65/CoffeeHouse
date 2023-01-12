@@ -18,10 +18,10 @@
         <% end %><br>
       </div>
       <div class="field">
-        <%= f.password_field :password_confirmation, data: { action: "input->form#updateEditing" }, required: true, placeholder: "確認密碼", autocomplete: "new-password", class: "my-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+        <%= f.password_field :password_confirmation, data: { action: "input->form#updateEditing" }, required: true, placeholder: t("views.shared.forms.confirm_password"), autocomplete: "new-password", class: "my-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
       </div>
       <div class="actions">
-        <%= f.submit "註冊", data: { target: "form.submit" }, class: "disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed bg-slate-300 text-slate-600 py-3 w-full cursor-pointer rounded-sm", disabled: "disabled" %>
+        <%= f.submit <%= t("views.shared.forms.register") %>, data: { target: "form.submit" }, class: "disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed bg-slate-300 text-slate-600 py-3 w-full cursor-pointer rounded-sm", disabled: "disabled" %>
       </div>
     <% end %>
   </div>

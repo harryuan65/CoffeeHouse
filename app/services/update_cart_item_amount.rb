@@ -18,7 +18,7 @@ class UpdateCartItemAmount < ApplicationService
     @cart_item.amount = @new_amount
 
     if @new_amount > @max_amount
-      errors.add(:amount, I18n.t("errors.messages.less_than_or_equal_to", count: max_amount))
+      errors.add(:amount, I18n.t("services.update_cart_item_amount.less_than_or_equal_to", count: max_amount))
     end
 
     if @cart_item.save

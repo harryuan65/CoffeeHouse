@@ -13,6 +13,6 @@ class RemoveFromCart < ApplicationService
 
   def call
     @target_item.destroy
-    complete(@items.count, :ok, "成功移除商品")
+    complete(@items.count, :ok, I18n.t("services.remove_from_cart.success"))
   end
 end

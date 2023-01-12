@@ -321,6 +321,7 @@ zh-TW:
         use_coffee_house_account: 使用 Coffee House 帳號登入
         not_member_yet: 還不是會員？
         register_now: 立即註冊
+        register: 註冊
         remember_me: 記住我
         sign_in: 登入
         register_account: 註冊 Coffee House 帳號
@@ -328,6 +329,7 @@ zh-TW:
         account: 帳號
         password: 密碼
         already_has_account: 已經有帳號？
+        confirm_password: 確認密碼
     carts:
       cart: 購物車
       checkout: 結帳
@@ -360,3 +362,15 @@ zh-TW:
       back_to_home: 回首頁
       check_orders: 查看訂單
       back_to_cart: 回購物車
+  services:
+    add_to_cart:
+      already_in_cart: 商品已存在購物車
+      success: 成功新增商品至購物車
+    remove_from_cart:
+      success: 成功移除商品
+    create_order:
+      amount_exceeded: 商品數量超過存貨量
+    get_payment_redirect_url:
+      payment_method_not_supported: 未支援支付方式：%{method}
+    update_cart_item_amount:
+      less_than_or_equal_to: 數量不可超過 %{count}
