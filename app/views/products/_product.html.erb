@@ -1,4 +1,4 @@
-<%= turbo_frame_tag product, class: "flex flex-col justify-between items-end max-w-[284px] border-solid border-[1px] border-gray-300 rounded-lg p-4 shadow-md" do %>
+<%= turbo_frame_tag product, class: "hover:bg-gray-200 hover:shadow-sm flex flex-col justify-between items-end max-w-[284px] border-solid border border-gray-300 p-4 shadow-md" do %>
   <%= link_to product_path(product), data: { turbo: false } do %>
     <%= image_tag product.image_url || "product_holder.svg", class: "w-[256px]" %>
     <div class="info text-gray-700">
