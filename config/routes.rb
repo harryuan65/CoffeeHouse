@@ -18,10 +18,15 @@ Rails.application.routes.draw do
     end
   end
   resources :cart_items
-  resources :orders
+  resources :orders do
+    collection do
+      post :confirm
+      get :confirm, to: redirect("carts/current"), as: :back_to_cart
+    end
+  end
   resources :shipments
   scope controller: :stripe, path: "stripe", as: "stripe" do
-    post :checkout
+    get :checkout
     get :payment_success
     get :payment_cancel
     post :webhook
