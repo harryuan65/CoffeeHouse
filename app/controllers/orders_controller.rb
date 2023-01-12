@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
 
   def index
     @orders = current_user.orders.all
-    # @orders = Array.new(20, @orders.first)
   end
 
   # In order not to show the parameters in query,
