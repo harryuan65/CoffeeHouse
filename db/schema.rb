@@ -84,8 +84,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_064324) do
 
   create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
-    t.string "payment_type", null: false
-    t.uuid "payment_id", null: false
+    t.string "payment_type"
+    t.uuid "payment_id"
     t.string "status", default: "pending", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -109,7 +109,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_064324) do
   end
 
   create_table "shipments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "region_id", null: false
+    t.uuid "shipping_method_id", null: false
     t.uuid "order_id", null: false
     t.string "name"
     t.string "email"
@@ -120,7 +120,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_064324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_shipments_on_order_id"
-    t.index ["region_id"], name: "index_shipments_on_region_id"
+    t.index ["shipping_method_id"], name: "index_shipments_on_shipping_method_id"
   end
 
   create_table "shipping_methods", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -201,7 +201,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_12_064324) do
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "shipments", "orders"
-  add_foreign_key "shipments", "shipping_regions", column: "region_id"
   add_foreign_key "shipping_methods", "shipping_providers", column: "provider_id"
   add_foreign_key "shipping_providers", "shipping_regions", column: "region_id"
 end

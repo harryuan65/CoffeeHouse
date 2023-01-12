@@ -6,7 +6,9 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.references :user, null: false, foreign_key: true, type: :uuid
       # USE ORDER ITEMS to refer to products instead
       # t.references :product, null: false, foreign_key: true, type: :uuid
-      t.references :payment, polymorphic: true, null: false, type: :uuid
+
+      # Removed null false constraint and allow later payment.
+      t.references :payment, polymorphic: true, type: :uuid
       t.string :status, null: false, default: "pending"
 
       t.timestamps
