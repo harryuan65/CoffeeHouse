@@ -7,7 +7,7 @@
   <div class="group text-white relative" data-controller="user-dropdown" data-action="click->user-dropdown#toggle">
     <%= image_tag("user.svg", class: "block h-10 cursor-pointer") %>
     <ul id="dropdown" class="z-10 group-hover:block bg-nav hidden top-10 absolute right-0">
-      <h3 class=""><%= current_user.email %></h3>
+      <h3><%= current_user.email %></h3>
       <hr class="border-white">
       <li class="border-slate-400 flex justify-between p-2 hover:opacity-80"><span class="mr-4 w-1/6 flex align-center"><%= image_tag("order.svg") %></span><%= link_to " ORDERS", orders_path, class: "text-lg block w-5/6" %></li>
       <li class="border-slate-400 flex justify-between p-2 hover:opacity-80"><span class="mr-4 w-1/6 flex align-center"><%= image_tag("user.svg") %></span><%= link_to " PROFILE", "#", class: "text-lg block w-5/6" %></li>
