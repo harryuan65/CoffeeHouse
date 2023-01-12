@@ -1,8 +1,11 @@
 <div class="max-w-[70vw] m-auto h-screen py-5">
   <h1 class="text-gray-700">確認結帳</h1>
-  <%= form_with url: orders_path do |f| %>
-    <%= render partial: "orders/order", locals: { items: @order_items } %>
+  <%= form_with url: orders_path, data: { turbo: false } do |f| %>
+    <%= render partial: "orders/confirm_cart", locals: { items: @order.items } %>
     <hr class="border-gray-500 m-4">
+    <%= render "orders/payment_methods" %>
+    <p class="text-gray-700 my-4">運送方式</p>
+    <%= render "shipments/shipment" %>
     <%= f.submit "結帳", class: "float-right hover:opacity-80 inline-block text-center w-24 mt-5 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
   <% end %>
 </div>

@@ -1,9 +1,10 @@
 <%# This is sent with the current _cart.html.erb to orders#new %>
 <div class="shipment" data-controller="shipment" id="shipment_info">
   <%# Changing region code will fetch shipments#new and update this whole shipment_info %>
-  <%= select_tag :"shipment[region][code]", shipment_countries_options(@region.code), data: { action: "change->shipment#updateShipmentInfo" }, class: "p-4 min-w-[112px]" %>
+  <%= select_tag :"shipping_region[code]", shipment_countries_options(@region.code), data: { action: "change->shipment#updateShipmentInfo" }, class: "p-4 min-w-[112px]" %>
   <% if @region.code == "TW" %>
-    <%= select_tag :"shipment[city]", shipment_tw_cities_options,  class: "p-4 min-w-[112px]" %>
+    <%= select_tag :shipment_city, shipment_tw_cities_options, class: "p-4 min-w-[112px]" %>
   <% end %>
-  <%= select_tag :"shipment[shipping_method][name]", shipment_methods_options(@region.shipping_methods), class: "p-4 min-w-[112px]" %>
+  <%# The final shipping method id is decisive %>
+  <%= select_tag :"shipping_method_id", shipment_methods_options(@region.shipping_methods), class: "p-4 min-w-[112px]" %>
 </div>

@@ -16,8 +16,8 @@
         <tr onclick="window.open('<%= order_path(order) %>', '_blank')" class="cursor-pointer hover:bg-slate-300 h-10 border-b border-b-gray-300 first:border-t first:border-t-gray-300 text-gray-700">
           <td class="text-center"><%= order.created_at %></td>
           <td class="text-center"><%= order.payment_type %></td>
-          <td class="text-center font-semibold"><%= number_to_currency(order.payment.amount, delimiter: ',') %></td>
-          <td class="text-center"><%= order.payment.currency.upcase %></td>
+          <td class="text-center font-semibold"><%= number_to_currency(order.payment&.amount, delimiter: ',') %></td>
+          <td class="text-center"><%= order.payment&.currency&.upcase %></td>
           <% case order.status %>
           <% when "pending" %>
           <td class="text-center"><span class="rounded-md px-2 py-1 bg-[#fbf0b7] text-[#c2b159]">未付款</span></td>

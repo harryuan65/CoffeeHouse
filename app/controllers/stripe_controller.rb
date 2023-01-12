@@ -3,9 +3,10 @@ class StripeController < ApplicationController
   skip_forgery_protection only: :webhook # it's ok since stripe doesn't have the csrf token and the signature should match
 
   def checkout
+    order = Order.find(params[:order_id])
     CheckExistingStripeUser.call(current_user.id)
     # @type [Array<LineItem>] line_items
-    line_items = Stripe::CartToLineItems.call(current_user.current_cart).output
+    line_items = Stripe::OrderToLineItems.call(order).output
 
     stripe_session = Stripe::CreateOneTimeCheckout.call(
       user: current_user,

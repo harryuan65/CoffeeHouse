@@ -1,0 +1,10 @@
+<div data-controller="payment-select">
+  <label for="payment_method" class="inline-block">付款方式:</label>
+  <%= text_field_tag :payment_method, nil, class: "inline-block", required: true, placeholder: "Choose a payment method...", autocomplete: "off" %>
+  <div class="flex">
+    <% if Order::PAYMENT_METHODS.include?("stripe") %>
+      <%= image_tag("stripe.png", class: "bg-white hover:opacity-70 cursor-pointer w-24", data: { value: "stripe", action: "click->payment-select#pick" }) %>
+    <% end %>
+    <%# image_tag("direct.svg", class: "w-24", data: { value: "user", action: "click->payment-select#pick" })  %>
+  </div>
+</div>

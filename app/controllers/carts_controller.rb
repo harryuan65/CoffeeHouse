@@ -8,9 +8,6 @@ class CartsController < ApplicationController
   def current
     @cart = current_cart
     @items = @cart.items.includes(:product)
-    default_region = ShippingRegion.find_by!(code: "TW")
-    @region = default_region
-    @shipping_methods = @region.shipping_methods
   end
 
   # Turbo stream needs a redirect

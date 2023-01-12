@@ -1,0 +1,11 @@
+<tr class="bg-white max-w-3xl">
+  <td data-name="image" class="p-2 min-w-[80px] w-[14%]"><%= image_tag product.image_url || "product_holder.svg" %></td>
+  <td data-name="name" class="p-4 w-[38%] align-baseline"><%= link_to product.name, product_path(product) %></td>
+  <td data-name="price" class="p-2 w-[15%] text-center"><%= number_to_currency(product.price, unit: "NT$ ", precision: 0) %></td>
+  <td data-name="amount" class="p-2 w-[17%]">
+    <%# This gives "products"=>[{"id"=>"b524089e-cc5b-4b35-bcde-5ce0abcf511a", "amount"=>"3"}, {"id"=>"aac710d9-684f-4bcd-bd74-61cfa319953a", "amount"=>"2"}] %>
+    <%= hidden_field_tag "products[][id]", product.id, class: "text-center", autocomplete: "off", readonly: true %>
+    <%= number_field_tag "products[][amount]", cart_item.amount, class: "text-center", autocomplete: "off", readonly: true %>
+  </td>
+  <td data-name="subtotal" class="p-2 w-[15%] text-center"><%= number_to_currency(product.price * cart_item.amount, unit: "NT$ ", precision: 0) %></td>
+</tr>

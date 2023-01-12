@@ -9,8 +9,8 @@
     </tr>
   </thead>
   <tbody>
-    <% items.each do |order_item| %>
-      <%= render partial: "orders/order_item", locals: { order_item: order_item, product: order_item.product } %>
+    <% items.each do |cart_item| %>
+      <%= render partial: "orders/confirm_cart_item", locals: { cart_item: cart_item, product: cart_item.product } %>
     <% end %>
   </tbody>
 </table>
