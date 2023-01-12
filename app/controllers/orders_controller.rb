@@ -29,6 +29,10 @@ class OrdersController < ApplicationController
     redirect_to(url)
   end
 
+  def show
+    @order = current_user.orders.includes(items: [:product]).find(params[:id])
+  end
+
   private
 
   def order_params
