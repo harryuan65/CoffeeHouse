@@ -21,10 +21,10 @@
         stroke-width="17"
         stroke-linecap="round" />
     </svg>
-    <p class="text-gray-700 text-lg">我們已收到您的訂單，感謝您的購買！</p>
+    <p class="text-gray-700 text-lg"><%= t("views.stripe.order_received") %></p>
     <div class="actions">
-      <%= link_to '回首頁', root_path, class: "hover:opacity-80 w-32 inline-block text-center bg-gray-300 text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
-      <%= link_to '繼續逛逛', root_path, class: "hover:opacity-80 w-32 inline-block text-center bg-gray-300 text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+      <%= link_to t("views.stripe.back_to_home"), root_path, class: "hover:opacity-80 w-32 inline-block text-center bg-gray-300 text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+      <%= link_to t("views.stripe.check_orders"), orders_path, class: "hover:opacity-80 w-32 inline-block text-center bg-gray-300 text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
     </div>
   </div>
 </div>

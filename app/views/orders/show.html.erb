@@ -1,5 +1,5 @@
 <div class="max-w-[70vw] m-auto h-screen py-5">
-  <%= link_to "<- 回訂單頁面", orders_path, class: "text-gray-500 text-lg hover:opacity-70" %>
-  <h1 class="text-gray-700">訂單：<%= @order.created_at.strftime("%F") %> </h1>
+  <%= link_to t("views.orders.back_to_orders"), orders_path, class: "text-gray-500 text-lg hover:opacity-70" %>
+  <h1 class="text-gray-700"><%= t("views.orders.order") %> ：<%= @order.created_at.strftime("%F") %> </h1>
   <%= render partial: "orders/order", locals: { items: @order.items } %>
 </div>

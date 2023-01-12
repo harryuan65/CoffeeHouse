@@ -1,5 +1,5 @@
 # Will switch to tw later
-en:
+zh-TW:
   models:
     shipping_regions:
       codes:
@@ -298,3 +298,65 @@ en:
         TW-Liuqiu: 琉球鄉
         TW-Ludao: 綠島鄉
         TW-Lanyu: 蘭嶼鄉
+    products:
+      id: 商品 ID
+      name: 商品名稱
+      price: 價格
+      available_count: 剩餘數量
+    orders:
+      created_at: 建立日期
+      payment_type: 付款方式
+      amount: 數量
+      currency: 幣別
+      status: 狀態
+      statuses:
+        pending: 未付款
+        completed: 付款完成
+        canceled: 取消
+        failed: 付款失敗
+      id: 識別碼
+  views:
+    shared:
+      forms:
+        use_coffee_house_account: 使用 Coffee House 帳號登入
+        not_member_yet: 還不是會員？
+        register_now: 立即註冊
+        remember_me: 記住我
+        sign_in: 登入
+        register_account: 註冊 Coffee House 帳號
+        minimum_password_length: 最短長度為 %{length} 字元
+        account: 帳號
+        password: 密碼
+        already_has_account: 已經有帳號？
+    carts:
+      cart: 購物車
+      checkout: 結帳
+      empty: 購物車內空空如也～
+      back_to_home: 回首頁
+      favorite_list: 最愛清單
+    products:
+      add_to_cart: 加入購物車
+      add_to_favorite: 加入最愛
+      tag_placeholder: 淺培
+      edit_product: 編輯商品
+      current_count: 數量
+      save: 儲存
+      tag: 標籤
+    orders:
+      back_to_orders: <- 回訂單頁面
+      order: 訂單
+      product: 商品
+      price: 單價
+      count: 數量
+      total_price: 小計
+      payment_method: 付款方式
+      choose_a_payment_method: 選擇付款方式
+      confirm_checkout: 確認結帳
+      shipment_method: 運送方式
+      checkout: 結帳
+    stripe:
+      order_received: 我們已收到您的訂單，感謝您的購買！
+      oops: 哎呀，好像出了點問題！請您再試一次。
+      back_to_home: 回首頁
+      check_orders: 查看訂單
+      back_to_cart: 回購物車

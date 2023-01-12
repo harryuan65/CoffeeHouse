@@ -1,12 +1,12 @@
 <%# Only listen to web socket when there's any item to watch %>
 <div class="max-w-[70vw] m-auto py-5 min-h-screen" id="cart_content">
   <% if @items.any? %>
-    <h1 class="text-gray-700">購物車</h1>
+    <h1 class="text-gray-700"><%= t("views.carts.cart") %></h1>
     <%# form_with url: stripe_checkout_path  |f| %>
     <%= form_with url: confirm_orders_path do |f| %>
       <%= render partial: "carts/cart", locals: { cart: @cart, items: @items } %>
       <hr class="border-gray-500 my-4">
-      <%= f.submit "結帳", data: { turbo:false }, class: "float-right hover:opacity-80 inline-block text-center w-24 mt-5 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+      <%= f.submit t("views.carts.checkout"), class: "float-right hover:opacity-80 inline-block text-center w-24 mt-5 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
     <% end %>
   <% else %>
     <%= render partial: "carts/empty" %>

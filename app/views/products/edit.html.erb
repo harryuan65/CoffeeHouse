@@ -6,29 +6,26 @@
         <%= image_tag @product.image_url || "product_holder.svg", class: "w-[24rem]" %>
       </div>
       <div class="ml-3">
-        <h1 class="text-2xl text-gray-700">編輯商品</h1>
+        <h1 class="text-2xl text-gray-700"><%= t("views.products.edit_product") %></h1>
         <div class="grid grid-cols-[100px,1fr] mt-5">
-          <%= f.label "商品 ID" %>
+          <%= f.label t("models.products.id") %>
           <p class="border border-gray-300 rounded-sm p-2 text-gray-400"><%= @product.id %></p>
         </div>
         <div class="grid grid-cols-[100px,1fr] mt-2">
-          <%= f.label "商品名稱" %>
+          <%= f.label t("models.products.name") %>
           <%= f.text_field :name, class: "border border-gray-300 rounded-sm p-2" %>
         </div>
         <div class="grid grid-cols-[100px,1fr] mt-2">
-          <%= f.label "價格" %>
+          <%= f.label t("models.products.price") %>
           <%= f.number_field :price, class: "border border-gray-300 rounded-sm p-2" %>
         </div>
         <div class="grid grid-cols-[100px,1fr] mt-2">
-          <%= f.label "剩餘數量" %>
+          <%= f.label t("models.products.available_count") %>
           <%= f.number_field :available_count, class: "border border-gray-300 rounded-sm p-2" %>
         </div>
         <div class="product__actions">
-          <%= f.submit "儲存", class: "cursor-pointer max-w-[8rem] float-right inline-block text-center w-full mt-5 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+          <%= f.submit t("views.products.save"), class: "cursor-pointer max-w-[8rem] float-right inline-block text-center w-full mt-5 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
         </div>
-        <!--<div class="tags mt-4 text-sm">
-          <span>標籤：</span><span class="inline-block p-[4px] bg-gray-300 text-gray-700 rounded-md">淺培</span>
-        </div> -->
       </div>
     </div>
     <hr class="border-gray-300 max-w-[70vw] my-6">

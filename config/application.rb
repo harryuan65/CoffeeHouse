@@ -35,7 +35,9 @@ module CoffeeHouse
     #
     # config.time_zone = "Central Time (US & Canada)"
     config.autoload_paths << "#{root}/lib"
-
+    config.i18n.default_locale = :'zh-TW'
+    # config.i18n.default_locale = :en
+    config.i18n.available_locales = %i[zh-TW en]
     # Don't generate system test files.
     config.generators.system_tests = nil
   end

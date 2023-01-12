@@ -1,6 +1,6 @@
 <div data-controller="payment-select">
-  <label for="payment_method" class="inline-block">付款方式:</label>
-  <%= text_field_tag :payment_method, nil, class: "inline-block", required: true, placeholder: "Choose a payment method...", autocomplete: "off" %>
+  <label for="payment_method" class="inline-block"><%= t("views.orders.payment_method") %>:</label>
+  <%= text_field_tag :payment_method, nil, class: "inline-block", required: true, placeholder: t("views.orders.choose_a_payment_methods"), autocomplete: "off" %>
   <div class="flex">
     <% if Order::PAYMENT_METHODS.include?("stripe") %>
       <%= image_tag("stripe.png", class: "bg-white hover:opacity-70 cursor-pointer w-24", data: { value: "stripe", action: "click->payment-select#pick" }) %>

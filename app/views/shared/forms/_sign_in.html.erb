@@ -6,26 +6,26 @@
     <%= render "shared/forms/form_flash" %>
   <% end %>
   <div class="form flex flex-col justify-center items-center">
-    <span class="my-4 text-md">使用 Coffee House 帳號登入</span>
+    <span class="my-4 text-md"><%= t("views.shared.forms.use_coffee_house_account") %></span>
     <%= form_with(model: @user || User.new, url: new_user_session_path, data: { controller: "form", turbo_frame: "modal" }, class: "w-80") do |f| %>
       <div class="field">
-        <%= f.email_field :email, data: {action: "input->form#updateEditing" }, required: true, placeholder: "CoffeeHouse 帳號", autofocus: true, autocomplete: "email", class: "w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+        <%= f.email_field :email, data: {action: "input->form#updateEditing" }, required: true, placeholder: t("views.shared.forms.account"), autofocus: true, autocomplete: "email", class: "w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
       </div>
       <div class="field">
-        <%= f.password_field :password, data: {action: "input->form#updateEditing" }, required: true, placeholder: "密碼", autocomplete: "current-password", class: "mt-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+        <%= f.password_field :password, data: {action: "input->form#updateEditing" }, required: true, placeholder:  t("views.shared.forms.password"), autocomplete: "current-password", class: "mt-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
       </div>
       <% if Devise.mappings[:user].rememberable? %>
         <div class="field float-right py-2">
           <%= f.check_box :remember_me %>
-          <%= f.label "記住我" %>
+          <%= f.label t("views.shared.forms.remember_me") %>
         </div>
       <% end %>
       <div class="actions">
-        <%= f.submit "登入", data: { target: "form.submit" }, class: "disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed bg-slate-300 text-slate-600 py-3 w-full cursor-pointer rounded-sm", disabled: "disabled" %>
+        <%= f.submit t("views.shared.forms.sign_in"), data: { target: "form.submit" }, class: "disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed bg-slate-300 text-slate-600 py-3 w-full cursor-pointer rounded-sm", disabled: "disabled" %>
       </div>
     <% end %>
   </div>
   <div>
-    <p class="py-2">還不是會員？<%= link_to "立即註冊", new_user_registration_path, data: { turbo_frame: "modal" } ,class: "text-accent hover:text-primary" %></p>
+    <p class="py-2"><%= t("views.shared.forms.not_member_yet") %> <%= link_to t("views.shared.forms.register_now"), new_user_registration_path, data: { turbo_frame: "modal" } ,class: "text-accent hover:text-primary" %></p>
   </div>
 </div>

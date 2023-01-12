@@ -6,15 +6,15 @@
     <%= render "shared/forms/form_flash" %>
   <% end %>
   <div class="form flex flex-col justify-center items-center">
-    <span class="my-4 text-md">註冊 Coffee House 帳號</span>
+    <span class="my-4 text-md"><%= t("views.shared.forms.register_account") %></span>
     <%= form_with(model: @user, url: user_registration_path, data: { controller: "form", turbo_frame: "modal" }, class: "w-80") do |f| %>
       <div class="field">
-        <%= f.email_field :email, data: { action: "input->form#updateEditing" }, required: true, placeholder: "CoffeeHouse 帳號", autofocus: true, autocomplete: "email", class: "w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+        <%= f.email_field :email, data: { action: "input->form#updateEditing" }, required: true, placeholder: t("views.shared.forms.account"), autofocus: true, autocomplete: "email", class: "w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
       </div>
       <div class="field">
-        <%= f.password_field :password, data: { action: "input->form#updateEditing" }, required: true, placeholder: "密碼", autocomplete: "new-password", class: "mt-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+        <%= f.password_field :password, data: { action: "input->form#updateEditing" }, required: true, placeholder: t("views.shared.forms.password"), autocomplete: "new-password", class: "mt-4 w-full text-gray-500 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
         <% if @minimum_password_length %>
-          <em>最短長度為 <%= @minimum_password_length %> 字元</em>
+          <em> <%= t("views.shared.forms.minimum_password_length", length: @minimum_password_length) %></em>
         <% end %><br>
       </div>
       <div class="field">
@@ -26,6 +26,6 @@
     <% end %>
   </div>
   <div>
-    <p class="py-2">已經有帳號？<%= link_to "立刻登入", new_user_session_path, data: { turbo_frame: "modal" } ,class: "text-accent hover:text-primary" %></p>
+    <p class="py-2"><%= t("views.shared.forms.already_has_account") %> <%= link_to t("views.shared.forms.sign_in"), new_user_session_path, data: { turbo_frame: "modal" } ,class: "text-accent hover:text-primary" %></p>
   </div>
 </div>
