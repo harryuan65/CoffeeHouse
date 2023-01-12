@@ -2,9 +2,9 @@
   <div class="links flex items-center font-bold text-2xl">
     <%= link_to "HOME", root_path, data: {turbo: false}, class: "text-white hover:opacity-70" %>
     <%# TODO: ABOUT %>
-    <%= link_to "ABOUT", '/about', class: "text-accent hover:opacity-70 ml-8" %>
+    <%= link_to "ABOUT", '#', class: "text-accent hover:opacity-70 ml-8" %>
     <%# TODO: CONTACT %>
-    <%= link_to "CONTACT", '/contact', class: "text-accent hover:opacity-70 ml-8" %>
+    <%= link_to "CONTACT", '#', class: "text-accent hover:opacity-70 ml-8" %>
   </div>
   <div class="flex items-center">
     <%= turbo_frame_tag "cart", class: "cart relative" do %>
