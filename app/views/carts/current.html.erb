@@ -6,7 +6,7 @@
     <%= form_with url: confirm_orders_path do |f| %>
       <%= render partial: "carts/cart", locals: { cart: @cart, items: @items } %>
       <hr class="border-gray-500 my-4">
-      <%= f.submit t("views.carts.checkout"), class: "float-right hover:opacity-80 inline-block text-center w-24 mt-5 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+      <%= f.submit t("views.carts.checkout"), data: { turbo: false }, class: "float-right hover:opacity-80 inline-block text-center min-w-24 mt-5 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
     <% end %>
   <% else %>
     <%= render partial: "carts/empty" %>
