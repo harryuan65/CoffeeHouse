@@ -1,0 +1,22 @@
+@startuml OrderFlow
+User->Cart: GET carts/current
+Cart->OrdersController: POST /orders/confirm
+OrdersController->OrdersController: Confirm items amount,\nchoose payment type\nand shipment method
+OrdersController->OrdersController: POST /orders\nSave order and shipment info
+alt payment.type == Stripe Payment
+  OrdersController->StripeController: POST /stripe/checkout
+  participant Stripe <<External>>
+  StripeController->Stripe: Redirect to checkout session
+  activate Stripe
+  Stripe->Stripe: User performs payment
+  alt succeeded
+    Stripe->StripeController: Redirect /stripe/success
+  else failed or canceled
+    Stripe->StripeController: Redirect /stripe/cancel
+  end
+  deactivate Stripe
+  StripeController->User
+else Tap Pay
+  note right of User: TODO
+end
+@enduml

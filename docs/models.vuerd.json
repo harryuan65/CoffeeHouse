@@ -3,9 +3,9 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -375,
-    "scrollLeft": 0,
-    "zoomLevel": 1,
+    "scrollTop": -495,
+    "scrollLeft": -777,
+    "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -1495,29 +1495,6 @@
             "id": "00c179d9-aed3-4444-a651-bc6690292281"
           },
           {
-            "name": "provider_id",
-            "comment": "",
-            "dataType": "uuid",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 68.59893798828125,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "1d59008c-4ff9-494d-8693-dd9af7dfb245"
-          },
-          {
             "name": "order_id",
             "comment": "",
             "dataType": "uuid",
@@ -1677,13 +1654,36 @@
               "widthDefault": 60
             },
             "id": "b8bc791c-833b-45f6-9ae2-8a248309ad37"
+          },
+          {
+            "name": "method_id",
+            "comment": "",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 64.85494995117188,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "04199181-d3d3-469f-a0d7-e02ec48be5d6"
           }
         ],
         "ui": {
           "active": false,
           "left": 1095,
           "top": 727,
-          "zIndex": 12,
+          "zIndex": 26,
           "widthName": 63.51593017578125,
           "widthComment": 120
         },
@@ -1965,10 +1965,10 @@
           }
         ],
         "ui": {
-          "active": false,
-          "left": 1624.4010620117188,
-          "top": 0,
-          "zIndex": 10,
+          "active": true,
+          "left": 1471.9011,
+          "top": 403.75,
+          "zIndex": 27,
           "widthName": 111.10890197753906,
           "widthComment": 60
         },
@@ -2028,9 +2028,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 1068,
-          "top": 389,
-          "zIndex": 11,
+          "left": 918,
+          "top": 348,
+          "zIndex": 15,
           "widthName": 103.555908203125,
           "widthComment": 60
         },
@@ -2288,17 +2288,17 @@
           "columnIds": [
             "b6374665-9845-4442-9ff6-ae7bb8c7d274"
           ],
-          "x": 1498.3439331054688,
-          "y": 156.25,
-          "direction": "right"
+          "x": 1401.7579498291016,
+          "y": 262.5,
+          "direction": "bottom"
         },
         "end": {
           "tableId": "17c7b3ff-4bf8-44fe-9ae7-f6933ece30e7",
           "columnIds": [
             "4fec1a8e-7059-41aa-b24b-9d948fa77f89"
           ],
-          "x": 1624.4010620117188,
-          "y": 75.5,
+          "x": 1471.9011,
+          "y": 441.5,
           "direction": "left"
         },
         "constraintName": "fk_shipment_providers_to_shipping_methods",
@@ -2314,9 +2314,9 @@
           "columnIds": [
             "6425a72c-91f1-42a5-948d-f5a66fb3d460"
           ],
-          "x": 1241.5,
-          "y": 389,
-          "direction": "top"
+          "x": 1265,
+          "y": 403,
+          "direction": "right"
         },
         "end": {
           "tableId": "c2e12b78-ebc9-4638-85d8-98b5544ed7b6",
@@ -2336,26 +2336,26 @@
         "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
-          "tableId": "c2e12b78-ebc9-4638-85d8-98b5544ed7b6",
+          "tableId": "17c7b3ff-4bf8-44fe-9ae7-f6933ece30e7",
           "columnIds": [
-            "b6374665-9845-4442-9ff6-ae7bb8c7d274"
+            "cbc9c25c-2fd4-47bb-84a0-27fec5888e34"
           ],
-          "x": 1401.7579498291016,
-          "y": 262.5,
-          "direction": "bottom"
+          "x": 1471.9011,
+          "y": 517,
+          "direction": "left"
         },
         "end": {
           "tableId": "44519ea5-b752-41f7-af84-f5460f543195",
           "columnIds": [
-            "1d59008c-4ff9-494d-8693-dd9af7dfb245"
+            "04199181-d3d3-469f-a0d7-e02ec48be5d6"
           ],
-          "x": 1305.5259323120117,
+          "x": 1303.653938293457,
           "y": 727,
           "direction": "top"
         },
-        "constraintName": "fk_shipment_providers_to_shipments",
+        "constraintName": "fk_shipping_methods_to_shipments",
         "visible": true,
-        "id": "ba0f4619-fdf7-4cac-904b-27d7795161a9"
+        "id": "80652977-248f-49cc-90d6-a63f93db4668"
       }
     ]
   }
