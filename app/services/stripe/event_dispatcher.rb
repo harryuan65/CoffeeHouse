@@ -64,8 +64,8 @@ module Stripe
     end
 
     def save_for_debug
-      filename = "#{@event.type}-#{Time.now.strftime("%Y%m%d%H-%M-%S")}.json"
-      dir = "spec/fixtures/files/stripe"
+      filename = "#{@event.type}.json"
+      dir = "spec/fixtures/files/stripe/#{Time.now.strftime("%Y%m%d%H-%M-%S")}"
       if !::File.directory?(dir)
         require "fileutils"
         ::FileUtils.mkdir_p(dir)
