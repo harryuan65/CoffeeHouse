@@ -1,16 +1,22 @@
-<table class="text-gray-700 border-separate border-spacing-y-6 m-auto">
-  <thead class="font-normal text-sm">
-    <tr>
-      <th class="min-w-[80px] w-[14%]"></th>
-      <th class="w-[38%]"><%= t("views.orders.product") %></th>
-      <th class="w-[15%]"><%= t("views.orders.price") %></th>
-      <th class="w-[17%]"><%= t("views.orders.count") %></th>
-      <th class="w-[15%]"><%= t("views.orders.total_price") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% items.each do |cart_item| %>
-      <%= render partial: "orders/order_item", locals: { cart_item: cart_item, product: cart_item.product } %>
-    <% end %>
-  </tbody>
-</table>
+<div>
+  <table class="text-gray-700 border-separate border-spacing-y-6 m-auto">
+    <thead class="font-normal text-sm">
+      <tr>
+        <th class="min-w-[80px] w-[14%]"></th>
+        <th class="w-[38%]"><%= t("views.orders.product") %></th>
+        <th class="w-[15%]"><%= t("views.orders.price") %></th>
+        <th class="w-[17%]"><%= t("views.orders.count") %></th>
+        <th class="w-[15%]"><%= t("views.orders.total_price") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% items.each do |cart_item| %>
+        <%= render partial: "orders/order_item", locals: { cart_item: cart_item, product: cart_item.product } %>
+      <% end %>
+    </tbody>
+  </table>
+  <hr class="border-gray-400">
+  <div class="flex justify-end">
+    <span class="text-lg text-gray-500"><%= t("views.orders.total") %> - <%= items.sum(&:total_price).to_i %></span>
+  </div>
+</div>
