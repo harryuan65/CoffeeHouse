@@ -12,7 +12,8 @@ class StripeController < ApplicationController
       user: current_user,
       line_items: line_items,
       success_url: stripe_payment_success_url,
-      cancel_url: stripe_payment_cancel_url
+      cancel_url: stripe_payment_cancel_url,
+      metadata: {order_id: order.id}
     ).output
 
     redirect_to stripe_session.url, allow_other_host: true

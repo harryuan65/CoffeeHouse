@@ -19,12 +19,14 @@ module Stripe
     end
 
     # :reek:FeatureEnvy
+    # :reek:TooManyStatements
     def validate
       validate_arg(options) do |opt|
         opt.validate :user, is_a: User, required: true
         opt.validate :line_items, is_a: Array, of: Stripe::LineItemVO, required: true
         opt.validate :success_url, is_a: String, required: true
         opt.validate :cancel_url, is_a: String, required: true
+        opt.validate :metadata, is_a: Hash, required: true
       end
     end
 
@@ -36,27 +38,22 @@ module Stripe
         payment_method_types: ["card"],
         mode: "payment",
         customer: user.stripe_customer_id,
-        client_reference_id: user.id
+        client_reference_id: user.id,
+        metadata: metadata
       )
       complete(stripe_session, :ok)
     end
 
     private
 
-    def user
-      @user ||= options[:user]
-    end
+    def user = options[:user]
 
-    def line_items
-      @line_items ||= options[:line_items]
-    end
+    def line_items = options[:line_items]
 
-    def success_url
-      @success_url ||= options[:success_url]
-    end
+    def success_url = options[:success_url]
 
-    def cancel_url
-      @cancel_url ||= options[:cancel_url]
-    end
+    def cancel_url = options[:cancel_url]
+
+    def metadata = options[:metadata]
   end
 end

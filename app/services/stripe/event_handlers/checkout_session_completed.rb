@@ -10,37 +10,23 @@ module Stripe
       # @raise [ActiveRecord::RecordNotFound] when user not found
       def initialize(checkout_session)
         @checkout_session = checkout_session
+        @order = ::Order.find(order_id)
         @user = User.find_by!(stripe_customer_id: customer)
-        load_products
       end
 
       def call
-        create_order
+        ::Order.transaction { create_payment }
         complete(nil, :ok)
       end
 
       private
 
-      def load_products
-        line_items
-        products_mapping
-        nil
+      def create_payment
+        stripe_payment = StripePayment.create!(amount: amount, currency: currency, response: @checkout_session)
+        @order.update!(payment: stripe_payment, status: :completed)
       end
 
-      def create_order
-        ActiveRecord::Base.transaction do
-          stripe_payment = StripePayment.create!(amount: amount, currency: currency, response: @checkout_session)
-          order = @user.orders.create!(payment: stripe_payment, status: :completed)
-          line_items.each do |line_item|
-            order.items.create!(order_item_info(line_item))
-          end
-        end
-      end
-
-      # Utilities
-
-      # @return [String] "cs_xxx"
-      def checkout_session_id = @checkout_session[:id]
+      def order_id = @checkout_session[:metadata][:order_id]
 
       # @return [String] "cus_xxx"
       def customer = @checkout_session[:customer]
@@ -51,32 +37,6 @@ module Stripe
 
       # @return [String] "twd"
       def currency = @checkout_session[:currency]
-
-      # @return [Array<Hash<String, Object>>] NOTE: String keys
-      def line_items
-        @line_items ||= begin
-          data = Stripe::Checkout::Session.list_line_items(checkout_session_id).data
-          data.as_json # allows me to use #values_at
-        end
-      end
-
-      # For each line item, find the corresponding product
-      # @return [Hash<String,Product>]
-      def products_mapping
-        @products ||= begin
-          stripe_product_ids = line_items.map { |item| item.dig("price", "product") }
-          ::Product.where(sku: stripe_product_ids).index_by(&:sku)
-        end
-      end
-
-      # Organize a order item from a line item and its corresponding product
-      # @param [Hash<String,Product>] line_item
-      def order_item_info(line_item)
-        price_info, total_price, quantity = line_item.values_at("price", "amount_total", "quantity")
-        sku = price_info["product"] # sku = stripe_product_id
-        product = products_mapping[sku]
-        {product: product, total_price: total_price, amount: quantity}
-      end
     end
   end
 end
