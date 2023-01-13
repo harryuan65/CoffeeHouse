@@ -1,17 +1,22 @@
 <div class="max-w-[70vw] m-auto h-screen py-5">
-  <%= link_to t("views.orders.back_to_orders"), orders_path, class: "text-gray-500 text-lg hover:opacity-70" %>
-  <div class="relative">
+  <div class="flex justify-between">
+    <%= link_to "←#{t("views.orders.back_to_orders")}", orders_path, class: "text-gray-500 text-lg hover:opacity-70" %>
+    <% if @order.pending? %>
+      <%= link_to t("views.orders.perform_payment"), stripe_checkout_path(order_id: @order.id), class: "ml-10 hover:opacity-80 inline-block text-center min-w-24 bg-primary text-gray-700 outline-none py-2 px-4 border-solid border-[1px] border-gray-300 rounded-sm" %>
+    <% end %>
+  </div>
+  <div class="flex justify-start gap-6 items-center">
     <% case @order.status %>
     <% when "pending" %>
-    <span class="rounded-md absolute right-0 text-lg px-4 py-2 bg-[#fbf0b7] text-[#c2b159]"><%= t("models.orders.statuses.pending") %></span>
+    <span class="rounded-md text-lg px-4 py-2 bg-[#fbf0b7] text-[#c2b159]"><%= t("models.orders.statuses.pending") %></span>
     <% when "completed" %>
-    <span class="rounded-md absolute right-0 text-lg px-4 py-2 bg-[#b3f6ae] text-[#2a6326]"><%= t("models.orders.statuses.completed") %></span>
+    <span class="rounded-md text-lg px-4 py-2 bg-[#b3f6ae] text-[#2a6326]"><%= t("models.orders.statuses.completed") %></span>
     <% when "canceled" %>
-    <span class="rounded-md absolute right-0 text-lg px-4 py-2 bg-gray-300 text-gray-600"><%= t("models.orders.statuses.canceled") %></span>
+    <span class="rounded-md text-lg px-4 py-2 bg-gray-300 text-gray-600"><%= t("models.orders.statuses.canceled") %></span>
     <% when "failed" %>
-    <span class="rounded-md absolute right-0 text-lg px-4 py-2 bg-[#f0b8b7] text-[#9e2523]"><%= t("models.orders.statuses.failed") %></span>
+    <span class="rounded-md text-lg px-4 py-2 bg-[#f0b8b7] text-[#9e2523]"><%= t("models.orders.statuses.failed") %></span>
   <% end %>
   <h1 class="text-gray-700"><%= t("views.orders.order") %> - <%= @order.created_at.strftime("%F") %> </h1>
-  <%= render partial: "orders/order", locals: { items: @order.items } %>
 </div>
+<%= render partial: "orders/order", locals: { items: @order.items } %>
 </div>
