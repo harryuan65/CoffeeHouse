@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   delegate :current_cart, to: :current_user
 
   def index
-    @orders = current_user.orders.all
+    @orders = current_user.orders.all.order(created_at: :desc)
   end
 
   # In order not to show the parameters in query,
