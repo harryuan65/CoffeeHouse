@@ -20,13 +20,13 @@
           <td class="text-center"><%= order.payment&.currency&.upcase %></td>
           <% case order.status %>
           <% when "pending" %>
-          <td class="text-center"><span class="rounded-md px-2 py-1 bg-[#fbf0b7] text-[#c2b159]"><%= t("views.orders.statuses.pending") %></span></td>
+          <td class="text-center"><span class="rounded-md px-2 py-1 bg-[#fbf0b7] text-[#c2b159]"><%= t("models.orders.statuses.pending") %></span></td>
           <% when "completed" %>
-          <td class="text-center"><span class="rounded-md px-2 py-1 bg-[#b3f6ae] text-[#2a6326]"><%= t("views.orders.statuses.completed") %></span></td>
+          <td class="text-center"><span class="rounded-md px-2 py-1 bg-[#b3f6ae] text-[#2a6326]"><%= t("models.orders.statuses.completed") %></span></td>
           <% when "canceled" %>
-          <td class="text-center"><span class="rounded-md px-2 py-1 bg-gray-300 text-gray-600"><%= t("views.orders.statuses.canceled") %></span></td>
+          <td class="text-center"><span class="rounded-md px-2 py-1 bg-gray-300 text-gray-600"><%= t("models.orders.statuses.canceled") %></span></td>
           <% when "failed" %>
-          <td class="text-center"><span class="rounded-md px-2 py-1 bg-[#f0b8b7] text-[#9e2523]"><%= t("views.orders.statuses.failed") %></span></td>
+          <td class="text-center"><span class="rounded-md px-2 py-1 bg-[#f0b8b7] text-[#9e2523]"><%= t("models.orders.statuses.failed") %></span></td>
         <% end %>
         <td class="group relative text-center">
           ID
