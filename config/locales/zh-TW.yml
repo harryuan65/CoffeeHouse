@@ -345,7 +345,7 @@ zh-TW:
       save: 儲存
       tag: 標籤
     orders:
-      back_to_orders: <- 回訂單頁面
+      back_to_orders: 回訂單頁面
       order: 訂單
       product: 商品
       price: 單價
@@ -356,6 +356,8 @@ zh-TW:
       confirm_checkout: 確認結帳
       shipment_method: 運送方式
       checkout: 結帳
+      perform_payment: 去付款
+      total: 小計
     stripe:
       order_received: 我們已收到您的訂單，感謝您的購買！
       oops: 哎呀，好像出了點問題！請您再試一次。

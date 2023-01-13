@@ -325,7 +325,7 @@ en:
       save: Save
       tag: Tag
     orders:
-      back_to_orders: <- Back to orders
+      back_to_orders: Back to orders
       order: Order
       product: Product
       price: Price
@@ -336,6 +336,8 @@ en:
       confirm_checkout: Confirm Checkout
       shipment_method: Shipment Method
       checkout: Checkout
+      perform_payment: Pay
+      total: Total
     stripe:
       order_received: Order Received
       oops: Oops! Something is not right. Try again later!
