@@ -1,12 +1,14 @@
 RSpec.describe Stripe::CreateOneTimeCheckout do
   let(:user) { create(:user, stripe_customer_id: "cus_#{SecureRandom.base58(24)}") }
   let(:line_items) { 5.times.map { Stripe::LineItemVO.new(price: "price_#{SecureRandom.base58(24)}", quantity: 1) } }
+  let(:order) { create(:order, status: :pending) }
   let(:service_options) do
     {
       user: user,
       line_items: line_items,
       success_url: "https://success_url",
-      cancel_url: "https://cancel_url"
+      cancel_url: "https://cancel_url",
+      metadata: {order_id: order.id}
     }
   end
   let(:stripe_args) do
@@ -17,7 +19,8 @@ RSpec.describe Stripe::CreateOneTimeCheckout do
       payment_method_types: ["card"],
       mode: "payment",
       customer: user.stripe_customer_id,
-      client_reference_id: user.id
+      client_reference_id: user.id,
+      metadata: {order_id: order.id}
     }
   end
 
