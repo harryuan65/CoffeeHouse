@@ -2,7 +2,6 @@
   <h1 class="text-gray-700"><%= t("views.orders.confirm_checkout") %></h1>
   <%= form_with url: orders_path, data: { turbo: false } do |f| %>
     <%= render partial: "orders/order", locals: { items: @order.items } %>
-    <hr class="border-gray-500 m-4">
     <%= render "orders/payment_methods" %>
     <p class="text-gray-700 my-4"><%= t("views.orders.shipment_method") %></p>
     <%= render "shipments/shipment" %>
