@@ -34,7 +34,7 @@ class User < ApplicationRecord
   has_many :carts
 
   def admin?
-    email == ENV["ADMIN_EMAIL"]
+    email == Rails.application.credentials.dig(:stripe, :admin_email)
   end
 
   def current_cart

@@ -44,7 +44,7 @@ end
 
 # Main Seeding Logic
 
-abort("Stripe api key is not set") unless Stripe.api_key ||= ENV["STRIPE_API_KEY"]
+abort("Stripe api key is not set") unless Stripe.api_key ||= Rails.application.credentials.dig(:stripe, :api_key)
 
 data_path = Rails.root.join("db/seeds/data/products.yml")
 products = Psych.safe_load(File.read(data_path), [Symbol])
