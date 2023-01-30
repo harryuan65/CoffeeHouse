@@ -44,8 +44,9 @@ EDITOR="code --wait" bin/rails credentials:edit --environment development
 Required credentials:
 
 ```yaml
+admin_email: XXXXXXXXXX
+redis_url: redis://UUU:PW@HOST:PORT
 stripe:
   stripe_api_key: XXXXXXXXXX
   endpoint_secret: XXXXXXXXXX
-  admin_email: XXXXXXXXXX
 ```
