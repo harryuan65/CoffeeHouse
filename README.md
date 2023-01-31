@@ -10,7 +10,7 @@ A small dummy ecommerce project where I play with Turbo Frames/Stream and Stripe
 
 # Domain Docs
 
-See `/docs`
+See `/docs` for specs and some demo images.
 
 # Environment
 
