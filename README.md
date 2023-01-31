@@ -5,8 +5,8 @@ A small dummy ecommerce project where I play with Turbo Frames/Stream and Stripe
 > **Note**
 > Work In Progress
 
-![Adding to cart](docs/coffeehouse_01.gif)
-![Order](docs/coffeehouse_02.gif)
+![Adding to cart](docs/01_opt.gif)
+![Order](docs/02_opt.gif)
 
 # Domain Docs
 
