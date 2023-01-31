@@ -16,9 +16,9 @@
 class Order < ApplicationRecord
   extend StringEnum
   belongs_to :user
-  belongs_to :payment, polymorphic: true, optional: true
-  has_one :shipment
-  has_many :items, class_name: "OrderItem"
+  belongs_to :payment, polymorphic: true, optional: true, dependent: :destroy
+  has_one :shipment, dependent: :destroy
+  has_many :items, class_name: "OrderItem", dependent: :destroy
 
   PAYMENT_METHODS = %w[stripe]
 
