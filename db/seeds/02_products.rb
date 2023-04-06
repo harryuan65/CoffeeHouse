@@ -51,9 +51,8 @@ products = Psych.safe_load(File.read(data_path), [Symbol])
 
 products.each do |hash|
   content = hash.delete("content")
-  next if Product.exists?(hash)
 
-  product = Product.create!(hash)
+  product = Product.find_or_create_by!(hash)
   product.content.update!(body: ActionText::Content.new(content))
   if (stripe_product = Stripe::Product.retrieve(product.sku))
     product.update(stripe_price_id: stripe_product.default_price) if product.stripe_price_id.nil?
